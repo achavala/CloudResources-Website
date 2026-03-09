@@ -184,7 +184,6 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
-        <div className="absolute inset-0 grid-bg" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
@@ -209,8 +208,8 @@ export default function ServicesPage() {
           key={service.id}
           id={service.id}
           className={`relative py-24 ${
-            index % 2 === 0 ? "" : "bg-navy/30"
-          } border-t border-white/5`}
+            index % 2 === 0 ? "" : "bg-navy"
+          } border-t border-border`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -252,7 +251,7 @@ export default function ServicesPage() {
                     {service.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1.5 text-xs font-medium text-text-secondary border border-white/10 rounded-full bg-white/[0.02]"
+                        className="px-3 py-1.5 text-xs font-medium text-text-secondary border border-border rounded-full bg-navy"
                       >
                         {tech}
                       </span>
@@ -336,13 +335,13 @@ export default function ServicesPage() {
       ))}
 
       {/* CTA */}
-      <section className="relative py-24 sm:py-32 border-t border-white/5">
+      <section className="hero-dark relative py-24 sm:py-32 border-t border-border">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white">
             Let&apos;s Build Your <span className="gradient-text">AI Advantage</span>
           </h2>
-          <p className="text-lg text-text-secondary max-w-xl mx-auto mb-8">
+          <p className="text-lg text-slate-300 max-w-xl mx-auto mb-8">
             Every enterprise challenge has an AI-native solution. Let&apos;s discuss yours.
           </p>
           <Link

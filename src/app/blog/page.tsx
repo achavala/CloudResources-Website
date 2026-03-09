@@ -83,7 +83,6 @@ export default function BlogPage() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
-        <div className="absolute inset-0 grid-bg" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
@@ -102,7 +101,7 @@ export default function BlogPage() {
       </section>
 
       {/* Featured Posts */}
-      <section className="relative py-16 border-t border-white/5">
+      <section className="relative py-16 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold mb-8">Featured</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -140,7 +139,7 @@ export default function BlogPage() {
       </section>
 
       {/* All Posts */}
-      <section className="relative py-16 border-t border-white/5">
+      <section className="relative py-16 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold mb-8">All Posts</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

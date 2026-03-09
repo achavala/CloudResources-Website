@@ -19,7 +19,6 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
-        <div className="absolute inset-0 grid-bg" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
@@ -38,7 +37,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="relative py-16 border-t border-white/5">
+      <section className="relative py-16 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
             {/* Form */}
@@ -77,7 +76,7 @@ export default function ContactPage() {
                         <input
                           type="text"
                           required
-                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
                           placeholder="John"
                         />
                       </div>
@@ -88,7 +87,7 @@ export default function ContactPage() {
                         <input
                           type="text"
                           required
-                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
                           placeholder="Doe"
                         />
                       </div>
@@ -102,7 +101,7 @@ export default function ContactPage() {
                         <input
                           type="email"
                           required
-                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
                           placeholder="john@company.com"
                         />
                       </div>
@@ -112,7 +111,7 @@ export default function ContactPage() {
                         </label>
                         <input
                           type="text"
-                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
                           placeholder="Your Company"
                         />
                       </div>
@@ -122,7 +121,7 @@ export default function ContactPage() {
                       <label className="block text-sm font-medium text-text-primary mb-2">
                         What are you interested in?
                       </label>
-                      <select className="w-full px-4 py-3 rounded-xl bg-navy border border-white/10 text-text-secondary text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all">
+                      <select className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-secondary text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all">
                         <option value="">Select a service</option>
                         <option value="data-ai">Data & AI Solutions</option>
                         <option value="ml">ML Engineering</option>
@@ -140,7 +139,7 @@ export default function ContactPage() {
                       </label>
                       <textarea
                         rows={5}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all resize-none"
+                        className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all resize-none"
                         placeholder="Describe your challenge, timeline, and what success looks like..."
                       />
                     </div>

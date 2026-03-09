@@ -17,39 +17,6 @@ import {
 
 const caseStudies = [
   {
-    slug: "sangpt",
-    tag: "AI Platform",
-    title: "SanGPT: Enterprise SAN Intelligence Platform",
-    subtitle: "The single pane of glass for enterprise SAN — powered by AI",
-    description:
-      "Built an AI-powered Storage Area Network intelligence platform that replaces fragmented, vendor-specific management tools with a single, unified system. Storage administrators can ask questions in plain English and get tool-backed, data-driven answers about their entire SAN environment — spanning multiple vendors, fabrics, and data centers.",
-    problem:
-      "Fortune 500 companies manage 20+ storage arrays across 3-4 vendors with separate tools. Storage teams spend 60-70% of their time on manual data gathering. Outages cost $100K-$500K per hour.",
-    solution:
-      "Conversational AI interface backed by 50+ tools with zero-hallucination guarantees, ML-driven anomaly detection, capacity forecasting, and autonomous remediation. Multi-vendor connectors unify Pure Storage, Dell, HPE, NetApp, Brocade, and Cisco under one canonical data model.",
-    icon: Brain,
-    color: "from-cyan to-blue",
-    technologies: [
-      "GPT-4o", "LangChain", "FastAPI", "Next.js", "PostgreSQL", "TimescaleDB",
-      "Neo4j", "OpenSearch", "Redis", "XGBoost", "scikit-learn", "ReactFlow",
-    ],
-    metrics: [
-      { value: "70%", label: "Faster MTTR" },
-      { value: "$600K", label: "Value Per Deployment" },
-      { value: "7", label: "Vendor Connectors" },
-      { value: "50+", label: "AI-Backed Tools" },
-      { value: "3", label: "Trained ML Models" },
-      { value: "Zero", label: "Hallucination Rate" },
-    ],
-    outcomes: [
-      "4x ROI achieved in the first year of deployment",
-      "Reduced incident MTTR from 4-8 hours to under 1 hour",
-      "Prevented capacity exhaustion with 95% confidence forecasting",
-      "Unified 7 vendor platforms into a single AI-powered interface",
-      "Automated chargeback reporting saving 15+ hours per week",
-    ],
-  },
-  {
     slug: "ai-run-sos",
     tag: "Intelligent Automation",
     title: "AI-RUN SOS: Staffing Operating System",
@@ -113,6 +80,39 @@ const caseStudies = [
       "8x-80x ROI ($50K-$200K annual savings per team)",
       "Approval-gated execution ensures zero auto-apply risk",
       "Auto-generated GitHub PRs with full context and lineage",
+    ],
+  },
+  {
+    slug: "sangpt",
+    tag: "AI Platform",
+    title: "SanGPT: Enterprise SAN Intelligence Platform",
+    subtitle: "The single pane of glass for enterprise SAN — powered by AI",
+    description:
+      "Built an AI-powered Storage Area Network intelligence platform that replaces fragmented, vendor-specific management tools with a single, unified system. Storage administrators can ask questions in plain English and get tool-backed, data-driven answers about their entire SAN environment — spanning multiple vendors, fabrics, and data centers.",
+    problem:
+      "Fortune 500 companies manage 20+ storage arrays across 3-4 vendors with separate tools. Storage teams spend 60-70% of their time on manual data gathering. Outages cost $100K-$500K per hour.",
+    solution:
+      "Conversational AI interface backed by 50+ tools with zero-hallucination guarantees, ML-driven anomaly detection, capacity forecasting, and autonomous remediation. Multi-vendor connectors unify Pure Storage, Dell, HPE, NetApp, Brocade, and Cisco under one canonical data model.",
+    icon: Brain,
+    color: "from-cyan to-blue",
+    technologies: [
+      "GPT-4o", "LangChain", "FastAPI", "Next.js", "PostgreSQL", "TimescaleDB",
+      "Neo4j", "OpenSearch", "Redis", "XGBoost", "scikit-learn", "ReactFlow",
+    ],
+    metrics: [
+      { value: "70%", label: "Faster MTTR" },
+      { value: "$600K", label: "Value Per Deployment" },
+      { value: "7", label: "Vendor Connectors" },
+      { value: "50+", label: "AI-Backed Tools" },
+      { value: "3", label: "Trained ML Models" },
+      { value: "Zero", label: "Hallucination Rate" },
+    ],
+    outcomes: [
+      "4x ROI achieved in the first year of deployment",
+      "Reduced incident MTTR from 4-8 hours to under 1 hour",
+      "Prevented capacity exhaustion with 95% confidence forecasting",
+      "Unified 7 vendor platforms into a single AI-powered interface",
+      "Automated chargeback reporting saving 15+ hours per week",
     ],
   },
   {
@@ -251,8 +251,8 @@ export default function CaseStudiesPage() {
         <section
           key={study.slug}
           className={`relative py-24 ${
-            index % 2 === 0 ? "" : "bg-navy/30"
-          } border-t border-white/5`}
+            index % 2 === 0 ? "" : "bg-navy"
+          } border-t border-border`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 mb-8">
@@ -321,7 +321,7 @@ export default function CaseStudiesPage() {
                     {study.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1.5 text-xs font-medium text-text-secondary border border-white/10 rounded-full bg-white/[0.02]"
+                        className="px-3 py-1.5 text-xs font-medium text-text-secondary border border-border rounded-full bg-navy"
                       >
                         {tech}
                       </span>
@@ -355,14 +355,13 @@ export default function CaseStudiesPage() {
       ))}
 
       {/* CTA */}
-      <section className="relative py-24 sm:py-32 border-t border-white/5">
-        <div className="absolute inset-0 mesh-gradient" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
+      <section className="relative py-24 sm:py-32 border-t border-border hero-dark">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white">
             Ready to Be Our{" "}
             <span className="gradient-text">Next Success Story?</span>
           </h2>
-          <p className="text-lg text-text-secondary max-w-xl mx-auto mb-8">
+          <p className="text-lg text-slate-300 max-w-xl mx-auto mb-8">
             Every project starts with a conversation. Let&apos;s explore what AI can do
             for your enterprise.
           </p>

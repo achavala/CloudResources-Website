@@ -55,7 +55,7 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2015", event: "Founded as Cloud Resources, IT staffing and consulting" },
+  { year: "2016", event: "Founded as Cloud Resources, IT staffing and consulting" },
   { year: "2018", event: "Expanded to professional services and DevOps consulting" },
   { year: "2020", event: "Pivoted to AI-first strategy, started ML engineering practice" },
   { year: "2022", event: "Built first enterprise AI platform (DevopsSREGPT)" },
@@ -85,7 +85,6 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
-        <div className="absolute inset-0 grid-bg" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -129,7 +128,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="relative py-24 border-t border-white/5">
+      <section className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
@@ -162,7 +161,7 @@ export default function AboutPage() {
       </section>
 
       {/* Vision, Mission, Approach */}
-      <section className="relative py-24 border-t border-white/5 bg-navy/30">
+      <section className="relative py-24 border-t border-border bg-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="gradient-border p-8">
@@ -203,7 +202,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="relative py-24 border-t border-white/5">
+      <section className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
@@ -236,7 +235,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="relative py-24 border-t border-white/5 bg-navy/30">
+      <section className="relative py-24 border-t border-border bg-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
@@ -262,7 +261,7 @@ export default function AboutPage() {
       </section>
 
       {/* Offices */}
-      <section className="relative py-24 border-t border-white/5">
+      <section className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
@@ -314,13 +313,13 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 sm:py-32 border-t border-white/5">
+      <section className="hero-dark relative py-24 sm:py-32 border-t border-border">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white">
             Join the <span className="gradient-text">AI Revolution</span>
           </h2>
-          <p className="text-lg text-text-secondary max-w-xl mx-auto mb-8">
+          <p className="text-lg text-slate-300 max-w-xl mx-auto mb-8">
             Whether you&apos;re looking to build AI solutions or join our team,
             we&apos;d love to hear from you.
           </p>
@@ -334,7 +333,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/careers"
-              className="px-8 py-4 rounded-full border border-white/10 text-text-primary font-semibold hover:bg-white/5 hover:border-white/20 transition-all duration-300"
+              className="px-8 py-4 rounded-full border border-white/20 text-white font-semibold hover:bg-white/10 hover:border-white/30 transition-all duration-300"
             >
               View Careers
             </Link>

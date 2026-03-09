@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-midnight: #060B1A;
-  --color-navy: #0A1628;
-  --color-navy-light: #111D35;
-  --color-slate-dark: #1A2744;
-  --color-cyan: #00D4FF;
-  --color-blue: #0066FF;
-  --color-purple: #7B61FF;
-  --color-emerald: #00E5A0;
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: #94A3B8;
-  --color-text-muted: #64748B;
-  --color-border: #1E293B;
-  --font-heading: 'Inter', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --color-midnight: #FFFFFF;
+  --color-navy: #F4F6FB;
+  --color-navy-light: #EDF0F7;
+  --color-slate-dark: #E2E8F0;
+  --color-cyan: #0052FF;
+  --color-blue: #0038E0;
+  --color-purple: #6C5CE7;
+  --color-emerald: #00B67A;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
+  --color-border: #E2E8F0;
+  --font-heading: 'DM Sans', 'Inter', system-ui, sans-serif;
+  --font-body: 'DM Sans', 'Inter', system-ui, sans-serif;
 }
 
 html {
@@ -30,12 +30,12 @@ body {
 }
 
 ::selection {
-  background-color: rgba(0, 212, 255, 0.3);
-  color: white;
+  background-color: rgba(0, 82, 255, 0.15);
+  color: #0F172A;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #00D4FF 0%, #0066FF 50%, #7B61FF 100%);
+  background: linear-gradient(135deg, #0052FF 0%, #0038E0 50%, #6C5CE7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -43,8 +43,9 @@ body {
 
 .gradient-border {
   position: relative;
-  background: var(--color-navy);
+  background: #FFFFFF;
   border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .gradient-border::before {
@@ -53,7 +54,7 @@ body {
   inset: 0;
   border-radius: 1rem;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(0, 102, 255, 0.1), rgba(123, 97, 255, 0.3));
+  background: linear-gradient(135deg, rgba(0, 82, 255, 0.2), rgba(0, 56, 224, 0.08), rgba(108, 92, 231, 0.2));
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: xor;
@@ -61,32 +62,49 @@ body {
 }
 
 .glass {
-  background: rgba(10, 22, 40, 0.6);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .glow-cyan {
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.15), 0 0 60px rgba(0, 212, 255, 0.05);
+  box-shadow: 0 0 30px rgba(0, 82, 255, 0.1), 0 0 60px rgba(0, 82, 255, 0.03);
 }
 
 .glow-blue {
-  box-shadow: 0 0 30px rgba(0, 102, 255, 0.15), 0 0 60px rgba(0, 102, 255, 0.05);
+  box-shadow: 0 0 30px rgba(0, 56, 224, 0.1), 0 0 60px rgba(0, 56, 224, 0.03);
 }
 
 .mesh-gradient {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(123, 97, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(0, 102, 255, 0.06) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(0, 82, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(108, 92, 231, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(0, 56, 224, 0.03) 0%, transparent 50%);
 }
 
 .grid-bg {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
+}
+
+.hero-dark {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: #F8FAFC;
+}
+
+.hero-dark .gradient-text {
+  background: linear-gradient(135deg, #3B82F6 0%, #6366F1 50%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-dark {
+  background: #0F172A;
+  color: #F8FAFC;
 }
 
 @keyframes float {
@@ -126,7 +144,7 @@ body {
 }
 .hover-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .line-clamp-2 {

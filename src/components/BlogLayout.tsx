@@ -52,7 +52,7 @@ export default function BlogLayout({
 
       <article className="relative pb-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-invert prose-lg max-w-none [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-text-primary [&_h3]:text-xl [&_h3]:font-bold [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-text-primary [&_p]:text-text-secondary [&_p]:leading-relaxed [&_p]:mb-4 [&_ul]:text-text-secondary [&_ul]:space-y-2 [&_ul]:mb-6 [&_li]:text-text-secondary [&_strong]:text-text-primary [&_code]:text-cyan [&_code]:bg-cyan/10 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_blockquote]:border-l-2 [&_blockquote]:border-cyan/30 [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-text-muted">
+          <div className="prose prose-lg max-w-none [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-text-primary [&_h3]:text-xl [&_h3]:font-bold [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-text-primary [&_p]:text-text-secondary [&_p]:leading-relaxed [&_p]:mb-4 [&_ul]:text-text-secondary [&_ul]:space-y-2 [&_ul]:mb-6 [&_li]:text-text-secondary [&_strong]:text-text-primary [&_code]:text-cyan [&_code]:bg-cyan/10 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_blockquote]:border-l-2 [&_blockquote]:border-cyan/30 [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-text-muted">
             {children}
           </div>
         </div>

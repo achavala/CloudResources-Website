@@ -113,7 +113,6 @@ export default function CareersPage() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
-        <div className="absolute inset-0 grid-bg" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
@@ -133,7 +132,7 @@ export default function CareersPage() {
       </section>
 
       {/* Why Join */}
-      <section className="relative py-20 border-t border-white/5">
+      <section className="relative py-20 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-extrabold tracking-tight">
@@ -159,7 +158,7 @@ export default function CareersPage() {
       </section>
 
       {/* Open Positions */}
-      <section className="relative py-20 border-t border-white/5 bg-navy/30">
+      <section className="relative py-20 border-t border-border bg-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
@@ -204,7 +203,7 @@ export default function CareersPage() {
                   {pos.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2.5 py-1 text-[10px] font-medium text-text-muted border border-white/10 rounded-full"
+                      className="px-2.5 py-1 text-[10px] font-medium text-text-muted border border-border rounded-full"
                     >
                       {skill}
                     </span>
@@ -217,13 +216,13 @@ export default function CareersPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 sm:py-32 border-t border-white/5">
+      <section className="hero-dark relative py-24 sm:py-32 border-t border-border">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white">
             Don&apos;t See Your Role?
           </h2>
-          <p className="text-lg text-text-secondary max-w-xl mx-auto mb-8">
+          <p className="text-lg text-slate-300 max-w-xl mx-auto mb-8">
             We&apos;re always looking for exceptional talent. Send us your resume
             and tell us how you&apos;d like to contribute.
           </p>
