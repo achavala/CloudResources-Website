@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowLeft,
   CheckCircle2,
   Database,
   Layers,
@@ -12,7 +11,6 @@ import {
   Search,
   ShieldCheck,
   Target,
-  Zap,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -305,44 +303,300 @@ const metrics = [
   { value: "$200K", label: "Annual Savings" },
 ];
 
+const enterpriseTechGroups = [
+  {
+    category: "Relational & Time-Series",
+    description:
+      "Transactional integrity and temporal analytics engines for structured data workloads.",
+    techs: ["PostgreSQL", "TimescaleDB", "MySQL"],
+  },
+  {
+    category: "Graph & Search",
+    description:
+      "Relationship traversal, semantic similarity, and full-text retrieval infrastructure.",
+    techs: ["Neo4j", "OpenSearch", "Qdrant", "pgvector"],
+  },
+  {
+    category: "Pipeline & ETL",
+    description:
+      "Transformation, orchestration, and workflow management for production data pipelines.",
+    techs: ["dbt", "Apache Airflow", "Python", "SQL"],
+  },
+  {
+    category: "Streaming & Cache",
+    description:
+      "Real-time event processing, message brokering, and low-latency data serving.",
+    techs: ["Kafka", "Redis", "Docker"],
+  },
+];
+
 export default function DataEngineeringPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient" />
+      <section
+        className="hero-dark relative pt-32 pb-20 overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(135deg, #0a1628 0%, #0d2847 50%, #0f3460 100%)",
+        }}
+      >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-cyan transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Services
-          </Link>
-          <div className="max-w-3xl">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-emerald flex items-center justify-center mb-6">
-              <Database className="w-7 h-7 text-white" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                SERVICES
+              </span>
+              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
+                Data Engineering
+              </h1>
+              <p className="mt-6 text-lg leading-relaxed max-w-2xl text-slate-300">
+                We build polyglot data platform architectures that match every
+                workload to its purpose-built database — relational for
+                transactions, time-series for temporal analytics, graph for
+                relationship mapping, vector for semantic search, and full-text
+                for document retrieval. Our AI-driven Data Reliability Agent
+                automatically detects, diagnoses, and triages pipeline failures
+                in under two minutes — replacing the 2–8 hour manual
+                investigation cycle that silently drains your data engineering
+                team&apos;s capacity. Real-time streaming pipelines, dbt
+                transformation layers, automated data quality monitoring, and
+                the infrastructure-level observability that ensures your data
+                platform operates with the reliability your business decisions
+                depend on.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-cyan text-white font-semibold hover:bg-blue transition-colors"
+                >
+                  Schedule a Consultation
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-            <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-              RELIABILITY. Delivered.
-            </span>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-primary">
-              Data Engineering
-            </h1>
-            <p className="mt-6 text-lg text-text-secondary leading-relaxed max-w-2xl">
-              We build polyglot data platform architectures that match every
-              workload to its purpose-built database — relational for
-              transactions, time-series for temporal analytics, graph for
-              relationship mapping, vector for semantic search, and full-text for
-              document retrieval. Our AI-driven Data Reliability Agent
-              automatically detects, diagnoses, and triages pipeline failures in
-              under two minutes — replacing the 2–8 hour manual investigation
-              cycle that silently drains your data engineering team&apos;s
-              capacity. Real-time streaming pipelines, dbt transformation
-              layers, automated data quality monitoring, and the
-              infrastructure-level observability that ensures your data platform
-              operates with the reliability your business decisions depend on.
-            </p>
+            <div className="hidden lg:block">
+              <svg
+                className="w-full h-full"
+                viewBox="0 0 500 400"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <ellipse
+                  cx="120"
+                  cy="80"
+                  rx="55"
+                  ry="18"
+                  fill="#06b6d4"
+                  fillOpacity="0.3"
+                />
+                <rect
+                  x="65"
+                  y="80"
+                  width="110"
+                  height="55"
+                  fill="#06b6d4"
+                  fillOpacity="0.15"
+                />
+                <ellipse
+                  cx="120"
+                  cy="135"
+                  rx="55"
+                  ry="18"
+                  fill="#06b6d4"
+                  fillOpacity="0.2"
+                />
+                <ellipse
+                  cx="120"
+                  cy="107"
+                  rx="55"
+                  ry="18"
+                  fill="none"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.25"
+                  strokeWidth="1"
+                />
+
+                <ellipse
+                  cx="380"
+                  cy="80"
+                  rx="55"
+                  ry="18"
+                  fill="#3b82f6"
+                  fillOpacity="0.3"
+                />
+                <rect
+                  x="325"
+                  y="80"
+                  width="110"
+                  height="55"
+                  fill="#3b82f6"
+                  fillOpacity="0.15"
+                />
+                <ellipse
+                  cx="380"
+                  cy="135"
+                  rx="55"
+                  ry="18"
+                  fill="#3b82f6"
+                  fillOpacity="0.2"
+                />
+                <ellipse
+                  cx="380"
+                  cy="107"
+                  rx="55"
+                  ry="18"
+                  fill="none"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.25"
+                  strokeWidth="1"
+                />
+
+                <path
+                  d="M175 107 L210 107 L230 190"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.4"
+                  strokeWidth="2"
+                  strokeDasharray="6 4"
+                />
+                <path
+                  d="M325 107 L290 107 L270 190"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.4"
+                  strokeWidth="2"
+                  strokeDasharray="6 4"
+                />
+
+                <rect
+                  x="220"
+                  y="185"
+                  width="60"
+                  height="40"
+                  rx="8"
+                  fill="#06b6d4"
+                  fillOpacity="0.2"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.4"
+                  strokeWidth="1.5"
+                />
+                <path
+                  d="M238 200 L250 210 L262 200"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.6"
+                  strokeWidth="1.5"
+                  fill="none"
+                />
+
+                <path
+                  d="M250 225 L250 280"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.4"
+                  strokeWidth="2"
+                  strokeDasharray="6 4"
+                />
+                <polygon
+                  points="250,285 244,275 256,275"
+                  fill="#06b6d4"
+                  fillOpacity="0.5"
+                />
+
+                <ellipse
+                  cx="250"
+                  cy="300"
+                  rx="65"
+                  ry="20"
+                  fill="#06b6d4"
+                  fillOpacity="0.25"
+                />
+                <rect
+                  x="185"
+                  y="300"
+                  width="130"
+                  height="45"
+                  fill="#06b6d4"
+                  fillOpacity="0.12"
+                />
+                <ellipse
+                  cx="250"
+                  cy="345"
+                  rx="65"
+                  ry="20"
+                  fill="#06b6d4"
+                  fillOpacity="0.18"
+                />
+
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="3"
+                  fill="#06b6d4"
+                  fillOpacity="0.4"
+                />
+                <circle
+                  cx="450"
+                  cy="50"
+                  r="3"
+                  fill="#3b82f6"
+                  fillOpacity="0.4"
+                />
+                <circle
+                  cx="50"
+                  cy="350"
+                  r="3"
+                  fill="#06b6d4"
+                  fillOpacity="0.3"
+                />
+                <circle
+                  cx="450"
+                  cy="350"
+                  r="3"
+                  fill="#3b82f6"
+                  fillOpacity="0.3"
+                />
+                <rect
+                  x="25"
+                  y="190"
+                  width="35"
+                  height="35"
+                  rx="4"
+                  fill="none"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.15"
+                  strokeWidth="1"
+                  transform="rotate(45 42.5 207.5)"
+                />
+                <rect
+                  x="440"
+                  y="240"
+                  width="28"
+                  height="28"
+                  rx="4"
+                  fill="none"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.15"
+                  strokeWidth="1"
+                  transform="rotate(45 454 254)"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Bar */}
+      <section className="relative py-12 bg-white shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {metrics.map((m) => (
+              <div key={m.label} className="border-l-4 border-cyan pl-6">
+                <div className="text-3xl sm:text-4xl font-extrabold text-cyan">
+                  {m.value}
+                </div>
+                <div className="text-sm text-text-secondary mt-1">
+                  {m.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -350,10 +604,10 @@ export default function DataEngineeringPage() {
       {/* Problems We Solve */}
       <section className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
             Challenges
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Problems We <span className="gradient-text">Solve</span>
           </h2>
           <p className="mt-4 text-text-secondary max-w-2xl">
@@ -365,28 +619,23 @@ export default function DataEngineeringPage() {
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
             {problems.map((p) => (
               <div key={p.problem} className="gradient-border p-8 hover-lift">
-                <div className="flex items-start gap-3 mb-4">
-                  <Target className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <span className="text-xs font-bold text-red-400 tracking-wider uppercase">
-                      CHALLENGE
-                    </span>
-                    <h3 className="text-lg font-bold text-text-primary mt-1">
-                      {p.problem}
-                    </h3>
-                  </div>
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center">
+                  <Target className="w-6 h-6 text-red-500" />
                 </div>
-                <p className="text-text-secondary leading-relaxed mb-4">
+                <span className="text-xs font-semibold text-red-500 uppercase tracking-wider mt-4 inline-block">
+                  CHALLENGE
+                </span>
+                <h3 className="text-lg font-bold text-text-primary mt-1">
+                  {p.problem}
+                </h3>
+                <p className="text-text-secondary leading-relaxed mt-3">
                   {p.description}
                 </p>
-                <div className="border-t border-border pt-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Zap className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                    <span className="text-xs font-bold text-emerald-500 tracking-wider uppercase">
-                      SOLUTION
-                    </span>
-                  </div>
-                  <p className="text-text-secondary leading-relaxed">
+                <div className="bg-emerald-500/5 rounded-lg p-4 mt-4">
+                  <span className="text-xs font-semibold text-emerald-500 uppercase tracking-wider">
+                    OUR SOLUTION
+                  </span>
+                  <p className="text-text-secondary leading-relaxed mt-2">
                     {p.solution}
                   </p>
                 </div>
@@ -399,10 +648,10 @@ export default function DataEngineeringPage() {
       {/* Solutions & Service Offerings */}
       <section className="relative py-24 bg-navy border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
             What We Deliver
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Solutions &{" "}
             <span className="gradient-text">Service Offerings</span>
           </h2>
@@ -416,9 +665,12 @@ export default function DataEngineeringPage() {
           </p>
           <div className="mt-12 space-y-12">
             {serviceOfferings.map((offering, idx) => (
-              <div key={offering.title} className="gradient-border p-8 md:p-10">
+              <div
+                key={offering.title}
+                className="relative pl-8 border-l-[3px] border-cyan"
+              >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-cyan to-emerald text-white text-sm font-bold">
+                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan to-blue text-white flex items-center justify-center text-sm font-bold">
                     {idx + 1}
                   </span>
                   <h3 className="text-xl font-bold text-text-primary">
@@ -527,30 +779,44 @@ export default function DataEngineeringPage() {
         </div>
       </section>
 
-      {/* Impact Metrics */}
+      {/* Enterprise Technology Expertise */}
       <section className="relative py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Impact
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
+            FEATURED
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
-            Measurable <span className="gradient-text">Results</span>
+          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+            Enterprise Technology{" "}
+            <span className="gradient-text">Expertise</span>
           </h2>
-          <p className="mt-4 text-text-secondary max-w-2xl mx-auto">
-            These metrics come from production data platform deployments — not
-            proof-of-concept demos, not controlled benchmarks, not best-case
-            scenarios. Real pipelines, real databases, real operational
-            improvements.
+          <p className="mt-4 text-text-secondary max-w-2xl">
+            Deep specialization across the full data technology landscape — from
+            relational and time-series engines to graph databases, streaming
+            platforms, and caching infrastructure.
           </p>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-12">
-            {metrics.map((m) => (
-              <div key={m.label}>
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-extrabold gradient-text">
-                  {m.value}
-                </div>
-                <div className="mt-3 text-base text-text-muted font-medium">
-                  {m.label}
-                </div>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {enterpriseTechGroups.map((group) => (
+              <div
+                key={group.category}
+                className="gradient-border p-6 hover-lift"
+              >
+                <h3 className="text-lg font-bold text-text-primary">
+                  {group.category}
+                </h3>
+                <p className="text-text-secondary text-sm mt-2 leading-relaxed">
+                  {group.description}
+                </p>
+                <ul className="mt-4 space-y-1.5">
+                  {group.techs.map((tech) => (
+                    <li
+                      key={tech}
+                      className="flex items-center gap-2 text-sm text-text-secondary"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan flex-shrink-0" />
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

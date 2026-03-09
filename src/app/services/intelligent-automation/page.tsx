@@ -2,18 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowLeft,
   CheckCircle2,
-  Bot,
   Network,
   Mail,
   RefreshCw,
   Wrench,
   ShieldCheck,
   ScrollText,
-  Cog,
-  Users,
   Timer,
+  Users,
   FileWarning,
   Unplug,
 } from "lucide-react";
@@ -316,55 +313,140 @@ const metrics = [
   { value: "$5M/yr", label: "Projected Value" },
 ];
 
+const enterpriseTech = [
+  {
+    name: "Agent Frameworks",
+    description: "Core frameworks powering multi-agent orchestration",
+    techs: ["NestJS", "Next.js", "Turborepo"],
+  },
+  {
+    name: "Communication & APIs",
+    description: "Email intelligence, job scheduling, and contract validation",
+    techs: ["Microsoft Graph API", "PgBoss", "Zod"],
+  },
+  {
+    name: "Data & Infrastructure",
+    description: "Persistent storage, caching, and containerization",
+    techs: ["PostgreSQL", "Redis", "Prisma", "Docker"],
+  },
+  {
+    name: "Quality & Testing",
+    description: "Type safety and schema-driven development",
+    techs: ["TypeScript", "Zod"],
+  },
+];
+
 export default function IntelligentAutomationPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient" />
+      <section
+        className="hero-dark relative pt-32 pb-20 overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(135deg, #0a1628 0%, #0d2847 50%, #0f3460 100%)",
+        }}
+      >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-cyan transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Services
-          </Link>
-          <div className="max-w-3xl">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple to-pink-500 flex items-center justify-center mb-6">
-              <Bot className="w-7 h-7 text-white" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
+                SERVICES
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
+                Intelligent Automation
+              </h1>
+              <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-2xl">
+                We build autonomous AI agent systems that execute complex business
+                workflows end-to-end — not simple task automations, but
+                full-lifecycle operational intelligence. Our flagship deployment
+                orchestrates 12 specialized agents processing 61M+ signals across
+                812K+ emails, managing everything from intake classification to
+                vendor scoring to placement execution with closed-loop feedback
+                that makes the system smarter with every cycle. Policy-governed
+                execution with immutable audit trails ensures every automated
+                decision is traceable, explainable, and compliant. This is the
+                difference between automating a task and automating an entire
+                operating system.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-cyan text-white font-semibold hover:shadow-lg hover:shadow-cyan/25 transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  Schedule a Consultation
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-            <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-              AUTONOMY. Delivered.
-            </span>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-primary">
-              Intelligent Automation
-            </h1>
-            <p className="mt-6 text-lg text-text-secondary leading-relaxed max-w-2xl">
-              We build autonomous AI agent systems that execute complex business
-              workflows end-to-end — not simple task automations, but
-              full-lifecycle operational intelligence. Our flagship deployment
-              orchestrates 12 specialized agents processing 61M+ signals across
-              812K+ emails, managing everything from intake classification to
-              vendor scoring to placement execution with closed-loop feedback
-              that makes the system smarter with every cycle. Policy-governed
-              execution with immutable audit trails ensures every automated
-              decision is traceable, explainable, and compliant. This is the
-              difference between automating a task and automating an entire
-              operating system.
-            </p>
+            <div className="hidden lg:flex justify-center">
+              <svg
+                width="420"
+                height="380"
+                viewBox="0 0 420 380"
+                fill="none"
+                className="w-full max-w-md opacity-80"
+              >
+                <polygon points="210,40 265,72 265,136 210,168 155,136 155,72" stroke="rgba(0,188,212,0.4)" strokeWidth="1.5" fill="rgba(0,188,212,0.06)" />
+                <polygon points="295,100 350,132 350,196 295,228 240,196 240,132" stroke="rgba(0,188,212,0.25)" strokeWidth="1" fill="rgba(0,188,212,0.04)" />
+                <polygon points="125,100 180,132 180,196 125,228 70,196 70,132" stroke="rgba(0,188,212,0.25)" strokeWidth="1" fill="rgba(0,188,212,0.04)" />
+                <polygon points="210,180 265,212 265,276 210,308 155,276 155,212" stroke="rgba(0,188,212,0.35)" strokeWidth="1.5" fill="rgba(0,188,212,0.05)" />
+                <polygon points="295,240 350,272 350,336 295,368 240,336 240,272" stroke="rgba(0,188,212,0.15)" strokeWidth="1" fill="rgba(0,188,212,0.03)" />
+                <polygon points="125,240 180,272 180,336 125,368 70,336 70,272" stroke="rgba(0,188,212,0.15)" strokeWidth="1" fill="rgba(0,188,212,0.03)" />
+
+                <line x1="210" y1="168" x2="210" y2="180" stroke="rgba(0,188,212,0.3)" strokeWidth="1.5" />
+                <line x1="265" y1="136" x2="240" y2="132" stroke="rgba(0,188,212,0.3)" strokeWidth="1" />
+                <line x1="155" y1="136" x2="180" y2="132" stroke="rgba(0,188,212,0.3)" strokeWidth="1" />
+                <line x1="265" y1="276" x2="240" y2="272" stroke="rgba(0,188,212,0.2)" strokeWidth="1" />
+                <line x1="155" y1="276" x2="180" y2="272" stroke="rgba(0,188,212,0.2)" strokeWidth="1" />
+
+                <circle cx="210" cy="104" r="6" fill="rgba(0,188,212,0.7)" />
+                <circle cx="295" cy="164" r="4.5" fill="rgba(0,188,212,0.5)" />
+                <circle cx="125" cy="164" r="4.5" fill="rgba(0,188,212,0.5)" />
+                <circle cx="210" cy="244" r="5.5" fill="rgba(0,188,212,0.6)" />
+                <circle cx="295" cy="304" r="3.5" fill="rgba(0,188,212,0.35)" />
+                <circle cx="125" cy="304" r="3.5" fill="rgba(0,188,212,0.35)" />
+
+                <path d="M 40 30 A 70 70 0 0 1 110 30" stroke="rgba(0,188,212,0.15)" strokeWidth="1" fill="none" />
+                <path d="M 310 350 A 55 55 0 0 1 380 350" stroke="rgba(0,188,212,0.12)" strokeWidth="1" fill="none" />
+                <rect x="360" y="60" width="40" height="40" rx="8" stroke="rgba(0,188,212,0.2)" strokeWidth="1" fill="rgba(0,188,212,0.03)" />
+                <rect x="10" y="280" width="35" height="35" rx="6" stroke="rgba(0,188,212,0.15)" strokeWidth="1" fill="rgba(0,188,212,0.02)" />
+                <circle cx="380" cy="180" r="15" stroke="rgba(0,188,212,0.12)" strokeWidth="1" fill="none" />
+                <circle cx="30" cy="180" r="12" stroke="rgba(0,188,212,0.1)" strokeWidth="1" fill="none" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Problems We Solve */}
+      {/* Stats Bar */}
+      <section
+        className="relative bg-white py-12"
+        style={{ boxShadow: "0 -4px 20px rgba(0,0,0,0.05)" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {metrics.map((m) => (
+              <div key={m.label} className="border-l-4 border-cyan pl-6">
+                <div className="text-3xl sm:text-4xl font-extrabold text-cyan">
+                  {m.value}
+                </div>
+                <div className="text-sm text-slate-600 mt-1">{m.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Problems Solved */}
       <section className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Challenges
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            PROBLEMS SOLVED
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
-            Problems We <span className="gradient-text">Solve</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+            From Automation Challenges to{" "}
+            <span className="gradient-text">Business Outcomes</span>
           </h2>
           <p className="mt-4 text-text-secondary max-w-2xl">
             Intelligent automation fails when organizations apply RPA thinking
@@ -375,11 +457,11 @@ export default function IntelligentAutomationPage() {
             {problems.map((p) => (
               <div key={p.problem} className="gradient-border p-8 hover-lift">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple/20 to-pink-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <p.icon className="w-5 h-5 text-cyan" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/10 to-orange-500/10 flex items-center justify-center flex-shrink-0">
+                    <p.icon className="w-6 h-6 text-red-400" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-red-400 tracking-wider uppercase">
+                    <span className="text-xs font-semibold text-red-500 uppercase tracking-wider">
                       CHALLENGE
                     </span>
                     <h3 className="text-lg font-bold text-text-primary mt-1">
@@ -390,9 +472,9 @@ export default function IntelligentAutomationPage() {
                 <p className="text-text-secondary leading-relaxed mb-4">
                   {p.description}
                 </p>
-                <div className="border-t border-border pt-4">
-                  <span className="text-xs font-bold text-emerald-500 tracking-wider uppercase">
-                    SOLUTION
+                <div className="bg-emerald-500/5 rounded-lg p-4">
+                  <span className="text-xs font-semibold text-emerald-500 uppercase tracking-wider">
+                    OUR SOLUTION
                   </span>
                   <p className="mt-2 text-text-secondary leading-relaxed">
                     {p.solution}
@@ -404,13 +486,13 @@ export default function IntelligentAutomationPage() {
         </div>
       </section>
 
-      {/* Solutions & Service Offerings */}
+      {/* Service Offerings */}
       <section className="relative py-24 bg-navy border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            What We Deliver
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            WHAT WE DELIVER
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Solutions &{" "}
             <span className="gradient-text">Service Offerings</span>
           </h2>
@@ -423,9 +505,12 @@ export default function IntelligentAutomationPage() {
           </p>
           <div className="mt-12 space-y-12">
             {serviceOfferings.map((offering, idx) => (
-              <div key={offering.title} className="gradient-border p-8 md:p-10">
+              <div
+                key={offering.title}
+                className="relative pl-8 border-l-[3px] border-cyan"
+              >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-purple to-pink-500 text-white text-sm font-bold">
+                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan to-blue flex items-center justify-center text-white text-sm font-bold">
                     {idx + 1}
                   </span>
                   <h3 className="text-xl font-bold text-text-primary">
@@ -473,10 +558,10 @@ export default function IntelligentAutomationPage() {
       {/* Key Capabilities */}
       <section className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Capabilities
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            CAPABILITIES
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Key <span className="gradient-text">Capabilities</span>
           </h2>
           <p className="mt-4 text-text-secondary max-w-2xl">
@@ -487,10 +572,7 @@ export default function IntelligentAutomationPage() {
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {capabilities.map((cap) => (
-              <div
-                key={cap.title}
-                className="gradient-border p-8 hover-lift"
-              >
+              <div key={cap.title} className="gradient-border p-8 hover-lift">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple/20 to-pink-500/20 flex items-center justify-center mb-5">
                   <cap.icon className="w-6 h-6 text-cyan" />
                 </div>
@@ -506,14 +588,15 @@ export default function IntelligentAutomationPage() {
         </div>
       </section>
 
-      {/* Technologies */}
+      {/* Enterprise Technology Expertise */}
       <section className="relative py-24 bg-navy border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Stack
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            FEATURED
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
-            Technologies We <span className="gradient-text">Build With</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+            Enterprise Technology{" "}
+            <span className="gradient-text">Expertise</span>
           </h2>
           <p className="mt-4 text-text-secondary max-w-2xl">
             We select technologies for production reliability, type safety, and
@@ -521,11 +604,46 @@ export default function IntelligentAutomationPage() {
             stack has been battle-tested across enterprise deployments processing
             millions of events daily.
           </p>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {enterpriseTech.map((group) => (
+              <div key={group.name} className="gradient-border p-6 hover-lift">
+                <h3 className="text-lg font-bold text-text-primary mb-1">
+                  {group.name}
+                </h3>
+                <p className="text-sm text-text-muted mb-4">
+                  {group.description}
+                </p>
+                <ul className="space-y-2">
+                  {group.techs.map((tech) => (
+                    <li
+                      key={tech}
+                      className="flex items-center gap-2 text-sm text-text-secondary"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan flex-shrink-0" />
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technologies */}
+      <section className="relative py-24 border-t border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            STACK
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+            Technologies We <span className="gradient-text">Build With</span>
+          </h2>
           <div className="mt-8 flex flex-wrap gap-3">
             {technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-5 py-2.5 text-sm font-medium text-text-secondary border border-border rounded-full bg-navy hover:border-cyan/30 hover:text-cyan transition-colors"
+                className="px-5 py-2.5 text-sm font-medium text-text-secondary border border-border rounded-full hover:border-cyan/30 hover:text-cyan transition-colors"
               >
                 {tech}
               </span>
@@ -534,42 +652,13 @@ export default function IntelligentAutomationPage() {
         </div>
       </section>
 
-      {/* Impact Metrics */}
-      <section className="relative py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Impact
-          </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
-            Measurable <span className="gradient-text">Results</span>
-          </h2>
-          <p className="mt-4 text-text-secondary max-w-2xl mx-auto">
-            These aren&apos;t projections or benchmarks — they&apos;re outcomes
-            from a production autonomous operating system running 24/7 across
-            real business operations.
-          </p>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-12">
-            {metrics.map((m) => (
-              <div key={m.label}>
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-extrabold gradient-text">
-                  {m.value}
-                </div>
-                <div className="mt-3 text-base text-text-muted font-medium">
-                  {m.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Related Case Study */}
       <section className="relative py-24 bg-navy border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Case Study
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            CASE STUDY
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Related <span className="gradient-text">Work</span>
           </h2>
           <div className="mt-8 gradient-border p-8 hover-lift">

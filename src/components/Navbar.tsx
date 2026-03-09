@@ -93,12 +93,6 @@ export default function Navbar() {
                 <>
                   <div className="absolute top-full left-0 h-3 w-72" />
                   <div className="absolute top-full left-0 mt-3 w-72 bg-white rounded-xl border border-gray-200 shadow-xl p-2 animate-fade-in">
-                    <Link
-                      href="/services"
-                      className="flex items-center gap-3 px-4 py-3 rounded-lg text-cyan hover:bg-navy transition-all font-semibold border-b border-border mb-1"
-                    >
-                      <span className="text-sm">All Services Overview</span>
-                    </Link>
                     {services.map((s) => (
                       <Link
                         key={s.name}

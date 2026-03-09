@@ -249,11 +249,8 @@ export default function Home() {
               },
             ].map((item) => (
               <div key={item.step} className="relative group">
-                <div className="text-6xl font-extrabold text-cyan/8 group-hover:text-cyan/15 transition-colors mb-4">
-                  {item.step}
-                </div>
-                <div className="w-10 h-10 rounded-lg bg-cyan/10 flex items-center justify-center mb-4">
-                  <item.icon className="w-5 h-5 text-cyan" />
+                <div className="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center mb-5">
+                  <item.icon className="w-6 h-6 text-cyan" />
                 </div>
                 <h3 className="text-lg font-bold text-text-primary mb-2">
                   {item.title}

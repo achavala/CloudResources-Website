@@ -39,7 +39,7 @@ export default function Footer() {
               Transforming enterprises with AI-native solutions, machine learning engineering, and data intelligence that deliver measurable business outcomes.
             </p>
             <div className="flex items-center gap-3">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-slate-700 flex items-center justify-center text-slate-500 hover:text-blue-400 hover:border-blue-400/30 transition-all">
+              <a href="https://www.linkedin.com/company/cloud-resources-inc/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-slate-700 flex items-center justify-center text-slate-500 hover:text-blue-400 hover:border-blue-400/30 transition-all">
                 <Linkedin className="w-4 h-4" />
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg border border-slate-700 flex items-center justify-center text-slate-500 hover:text-blue-400 hover:border-blue-400/30 transition-all">

@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowLeft,
   CheckCircle2,
-  Users,
   Brain,
   Code2,
   Cloud,
@@ -12,7 +10,6 @@ import {
   Database,
   Briefcase,
   Target,
-  Zap,
   Building2,
   Award,
   Globe,
@@ -370,44 +367,379 @@ const heritageHighlights = [
   },
 ];
 
+const enterpriseTechGroups = [
+  {
+    category: "Languages & Frameworks",
+    description:
+      "Core programming languages and application frameworks our talent specializes in.",
+    techs: ["Java", "Python", "TypeScript", "React", "Angular", "Spring Boot", ".NET"],
+  },
+  {
+    category: "Cloud Platforms",
+    description:
+      "Enterprise cloud infrastructure across all major providers.",
+    techs: ["AWS", "Azure", "GCP", "Kubernetes"],
+  },
+  {
+    category: "Data & Analytics",
+    description:
+      "Data platform technologies from warehouse to visualization.",
+    techs: ["Snowflake", "Databricks", "Spark", "dbt", "Tableau"],
+  },
+  {
+    category: "DevOps & Infrastructure",
+    description:
+      "Modern infrastructure tooling and site reliability engineering.",
+    techs: ["Terraform", "Docker", "CI/CD", "Prometheus", "Grafana"],
+  },
+];
+
 export default function TechnologyStaffingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient" />
+      <section
+        className="hero-dark relative pt-32 pb-20 overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(135deg, #0a1628 0%, #0d2847 50%, #0f3460 100%)",
+        }}
+      >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-cyan transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Services
-          </Link>
-          <div className="max-w-3xl">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue to-cyan flex items-center justify-center mb-6">
-              <Users className="w-7 h-7 text-white" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                SERVICES
+              </span>
+              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
+                Technology Staffing
+              </h1>
+              <p className="mt-6 text-lg leading-relaxed max-w-2xl text-slate-300">
+                Cloud Resources has been placing elite technology talent since
+                2016 — and staffing remains the foundation of everything we
+                build. A decade of IT staffing expertise, combined with the
+                technical depth of a firm that builds production AI/ML systems,
+                data platforms, and cloud-native infrastructure, means we
+                don&apos;t just match resumes to job descriptions. We understand
+                the technologies your candidates will work with because we build
+                with them every day. AI/ML engineers, Java developers, cloud
+                architects, DevOps specialists, data engineers, full-stack
+                developers, and business analysts — placed nationwide across
+                financial services, healthcare, insurance, defense, retail, and
+                energy with engagement models that fit every organizational
+                structure.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-cyan text-white font-semibold hover:bg-blue transition-colors"
+                >
+                  Schedule a Consultation
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-            <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-              TALENT. Delivered.
-            </span>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-primary">
-              Technology Staffing
-            </h1>
-            <p className="mt-6 text-lg text-text-secondary leading-relaxed max-w-2xl">
-              Cloud Resources has been placing elite technology talent since
-              2016 — and staffing remains the foundation of everything we build.
-              A decade of IT staffing expertise, combined with the technical
-              depth of a firm that builds production AI/ML systems, data
-              platforms, and cloud-native infrastructure, means we don&apos;t
-              just match resumes to job descriptions. We understand the
-              technologies your candidates will work with because we build with
-              them every day. AI/ML engineers, Java developers, cloud architects,
-              DevOps specialists, data engineers, full-stack developers, and
-              business analysts — placed nationwide across financial services,
-              healthcare, insurance, defense, retail, and energy with engagement
-              models that fit every organizational structure.
-            </p>
+            <div className="hidden lg:block">
+              <svg
+                className="w-full h-full"
+                viewBox="0 0 500 400"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line
+                  x1="250"
+                  y1="120"
+                  x2="120"
+                  y2="200"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.3"
+                  strokeWidth="1.5"
+                />
+                <line
+                  x1="250"
+                  y1="120"
+                  x2="380"
+                  y2="200"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.3"
+                  strokeWidth="1.5"
+                />
+                <line
+                  x1="120"
+                  y1="200"
+                  x2="180"
+                  y2="320"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.3"
+                  strokeWidth="1.5"
+                />
+                <line
+                  x1="380"
+                  y1="200"
+                  x2="320"
+                  y2="320"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.3"
+                  strokeWidth="1.5"
+                />
+                <line
+                  x1="120"
+                  y1="200"
+                  x2="380"
+                  y2="200"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.15"
+                  strokeWidth="1"
+                  strokeDasharray="4 4"
+                />
+                <line
+                  x1="180"
+                  y1="320"
+                  x2="320"
+                  y2="320"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.15"
+                  strokeWidth="1"
+                  strokeDasharray="4 4"
+                />
+                <line
+                  x1="250"
+                  y1="120"
+                  x2="180"
+                  y2="320"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.12"
+                  strokeWidth="1"
+                  strokeDasharray="3 5"
+                />
+                <line
+                  x1="250"
+                  y1="120"
+                  x2="320"
+                  y2="320"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.12"
+                  strokeWidth="1"
+                  strokeDasharray="3 5"
+                />
+                <line
+                  x1="120"
+                  y1="200"
+                  x2="320"
+                  y2="320"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.1"
+                  strokeWidth="1"
+                  strokeDasharray="3 5"
+                />
+                <line
+                  x1="380"
+                  y1="200"
+                  x2="180"
+                  y2="320"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.1"
+                  strokeWidth="1"
+                  strokeDasharray="3 5"
+                />
+
+                <circle
+                  cx="250"
+                  cy="100"
+                  r="26"
+                  fill="#06b6d4"
+                  fillOpacity="0.15"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.5"
+                  strokeWidth="1.5"
+                />
+                <circle
+                  cx="250"
+                  cy="91"
+                  r="8"
+                  fill="#06b6d4"
+                  fillOpacity="0.4"
+                />
+                <path
+                  d="M236 108 Q250 120 264 108"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.4"
+                  strokeWidth="1.5"
+                  fill="none"
+                />
+
+                <circle
+                  cx="120"
+                  cy="200"
+                  r="22"
+                  fill="#06b6d4"
+                  fillOpacity="0.12"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.4"
+                  strokeWidth="1.5"
+                />
+                <circle
+                  cx="120"
+                  cy="192"
+                  r="7"
+                  fill="#06b6d4"
+                  fillOpacity="0.3"
+                />
+                <path
+                  d="M108 207 Q120 216 132 207"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.3"
+                  strokeWidth="1.5"
+                  fill="none"
+                />
+
+                <circle
+                  cx="380"
+                  cy="200"
+                  r="22"
+                  fill="#3b82f6"
+                  fillOpacity="0.12"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.4"
+                  strokeWidth="1.5"
+                />
+                <circle
+                  cx="380"
+                  cy="192"
+                  r="7"
+                  fill="#3b82f6"
+                  fillOpacity="0.3"
+                />
+                <path
+                  d="M368 207 Q380 216 392 207"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.3"
+                  strokeWidth="1.5"
+                  fill="none"
+                />
+
+                <circle
+                  cx="180"
+                  cy="320"
+                  r="19"
+                  fill="#06b6d4"
+                  fillOpacity="0.1"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.35"
+                  strokeWidth="1.5"
+                />
+                <circle
+                  cx="180"
+                  cy="313"
+                  r="6"
+                  fill="#06b6d4"
+                  fillOpacity="0.25"
+                />
+                <path
+                  d="M170 326 Q180 334 190 326"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.25"
+                  strokeWidth="1.5"
+                  fill="none"
+                />
+
+                <circle
+                  cx="320"
+                  cy="320"
+                  r="19"
+                  fill="#3b82f6"
+                  fillOpacity="0.1"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.35"
+                  strokeWidth="1.5"
+                />
+                <circle
+                  cx="320"
+                  cy="313"
+                  r="6"
+                  fill="#3b82f6"
+                  fillOpacity="0.25"
+                />
+                <path
+                  d="M310 326 Q320 334 330 326"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.25"
+                  strokeWidth="1.5"
+                  fill="none"
+                />
+
+                <circle
+                  cx="50"
+                  cy="80"
+                  r="4"
+                  fill="#06b6d4"
+                  fillOpacity="0.2"
+                />
+                <circle
+                  cx="450"
+                  cy="80"
+                  r="4"
+                  fill="#3b82f6"
+                  fillOpacity="0.2"
+                />
+                <circle
+                  cx="60"
+                  cy="350"
+                  r="3"
+                  fill="#06b6d4"
+                  fillOpacity="0.15"
+                />
+                <circle
+                  cx="440"
+                  cy="350"
+                  r="3"
+                  fill="#3b82f6"
+                  fillOpacity="0.15"
+                />
+                <rect
+                  x="35"
+                  y="155"
+                  width="30"
+                  height="30"
+                  rx="4"
+                  fill="none"
+                  stroke="#06b6d4"
+                  strokeOpacity="0.15"
+                  strokeWidth="1"
+                  transform="rotate(45 50 170)"
+                />
+                <rect
+                  x="435"
+                  y="275"
+                  width="25"
+                  height="25"
+                  rx="4"
+                  fill="none"
+                  stroke="#3b82f6"
+                  strokeOpacity="0.15"
+                  strokeWidth="1"
+                  transform="rotate(45 447.5 287.5)"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Bar */}
+      <section className="relative py-12 bg-white shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {metrics.map((m) => (
+              <div key={m.label} className="border-l-4 border-cyan pl-6">
+                <div className="text-3xl sm:text-4xl font-extrabold text-cyan">
+                  {m.value}
+                </div>
+                <div className="text-sm text-text-secondary mt-1">
+                  {m.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -503,10 +835,10 @@ export default function TechnologyStaffingPage() {
       {/* Problems We Solve */}
       <section className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
             Challenges
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Problems We <span className="gradient-text">Solve</span>
           </h2>
           <p className="mt-4 text-text-secondary max-w-2xl">
@@ -519,28 +851,23 @@ export default function TechnologyStaffingPage() {
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
             {problems.map((p) => (
               <div key={p.problem} className="gradient-border p-8 hover-lift">
-                <div className="flex items-start gap-3 mb-4">
-                  <Target className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <span className="text-xs font-bold text-red-400 tracking-wider uppercase">
-                      CHALLENGE
-                    </span>
-                    <h3 className="text-lg font-bold text-text-primary mt-1">
-                      {p.problem}
-                    </h3>
-                  </div>
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center">
+                  <Target className="w-6 h-6 text-red-500" />
                 </div>
-                <p className="text-text-secondary leading-relaxed mb-4">
+                <span className="text-xs font-semibold text-red-500 uppercase tracking-wider mt-4 inline-block">
+                  CHALLENGE
+                </span>
+                <h3 className="text-lg font-bold text-text-primary mt-1">
+                  {p.problem}
+                </h3>
+                <p className="text-text-secondary leading-relaxed mt-3">
                   {p.description}
                 </p>
-                <div className="border-t border-border pt-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Zap className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                    <span className="text-xs font-bold text-emerald-500 tracking-wider uppercase">
-                      SOLUTION
-                    </span>
-                  </div>
-                  <p className="text-text-secondary leading-relaxed">
+                <div className="bg-emerald-500/5 rounded-lg p-4 mt-4">
+                  <span className="text-xs font-semibold text-emerald-500 uppercase tracking-wider">
+                    OUR SOLUTION
+                  </span>
+                  <p className="text-text-secondary leading-relaxed mt-2">
                     {p.solution}
                   </p>
                 </div>
@@ -553,10 +880,10 @@ export default function TechnologyStaffingPage() {
       {/* Solutions & Service Offerings */}
       <section className="relative py-24 bg-navy border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
             What We Deliver
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Solutions &{" "}
             <span className="gradient-text">Service Offerings</span>
           </h2>
@@ -570,9 +897,12 @@ export default function TechnologyStaffingPage() {
           </p>
           <div className="mt-12 space-y-12">
             {serviceOfferings.map((offering, idx) => (
-              <div key={offering.title} className="gradient-border p-8 md:p-10">
+              <div
+                key={offering.title}
+                className="relative pl-8 border-l-[3px] border-cyan"
+              >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-blue to-cyan text-white text-sm font-bold">
+                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan to-blue text-white flex items-center justify-center text-sm font-bold">
                     {idx + 1}
                   </span>
                   <h3 className="text-xl font-bold text-text-primary">
@@ -683,30 +1013,44 @@ export default function TechnologyStaffingPage() {
         </div>
       </section>
 
-      {/* Impact Metrics */}
+      {/* Enterprise Technology Expertise */}
       <section className="relative py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Impact
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
+            FEATURED
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
-            Measurable <span className="gradient-text">Results</span>
+          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+            Enterprise Technology{" "}
+            <span className="gradient-text">Expertise</span>
           </h2>
-          <p className="mt-4 text-text-secondary max-w-2xl mx-auto">
-            These metrics reflect a decade of technology staffing
-            operations — not aspirational targets, but verified outcomes from
-            hundreds of placements across Fortune 500 enterprises and
-            growth-stage technology companies.
+          <p className="mt-4 text-text-secondary max-w-2xl">
+            Deep specialization across the full technology landscape — from
+            languages and frameworks to cloud platforms, data infrastructure, and
+            DevOps tooling.
           </p>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-12">
-            {metrics.map((m) => (
-              <div key={m.label}>
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-extrabold gradient-text">
-                  {m.value}
-                </div>
-                <div className="mt-3 text-base text-text-muted font-medium">
-                  {m.label}
-                </div>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {enterpriseTechGroups.map((group) => (
+              <div
+                key={group.category}
+                className="gradient-border p-6 hover-lift"
+              >
+                <h3 className="text-lg font-bold text-text-primary">
+                  {group.category}
+                </h3>
+                <p className="text-text-secondary text-sm mt-2 leading-relaxed">
+                  {group.description}
+                </p>
+                <ul className="mt-4 space-y-1.5">
+                  {group.techs.map((tech) => (
+                    <li
+                      key={tech}
+                      className="flex items-center gap-2 text-sm text-text-secondary"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan flex-shrink-0" />
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

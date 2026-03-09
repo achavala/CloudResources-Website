@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowLeft,
   CheckCircle2,
-  Cloud,
   Server,
   Code2,
   Brain,
@@ -321,56 +319,153 @@ const metrics = [
   { value: "4x", label: "DORA Metric Improvement" },
 ];
 
+const enterpriseTech = [
+  {
+    name: "Cloud Platforms",
+    description: "Multi-cloud infrastructure and provisioning",
+    techs: ["AWS EKS", "Terraform"],
+  },
+  {
+    name: "Container & Orchestration",
+    description: "Container runtime and cluster management",
+    techs: ["Kubernetes", "Docker"],
+  },
+  {
+    name: "Observability",
+    description: "Unified metrics, logs, traces, and cost telemetry",
+    techs: ["Prometheus", "Grafana", "Grafana Loki", "Grafana Tempo", "OpenTelemetry", "OpenCost"],
+  },
+  {
+    name: "CI/CD & GitOps",
+    description: "Declarative delivery and deployment automation",
+    techs: ["ArgoCD", "GitHub Actions"],
+  },
+];
+
 export default function CloudDevOpsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient" />
+      <section
+        className="hero-dark relative pt-32 pb-20 overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(135deg, #0a1628 0%, #0d2847 50%, #0f3460 100%)",
+        }}
+      >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-cyan transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Services
-          </Link>
-          <div className="max-w-3xl">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald to-cyan flex items-center justify-center mb-6">
-              <Cloud className="w-7 h-7 text-white" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
+                SERVICES
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
+                Cloud &amp; DevOps
+              </h1>
+              <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-2xl">
+                We build cloud-native operational intelligence platforms that
+                unify metrics, logs, traces, costs, and incidents into a single
+                AI-powered view. Kubernetes orchestration on EKS, GKE, and AKS
+                with Infrastructure-as-Code that eliminates configuration drift.
+                FinOps frameworks that have reduced cloud spend by 40% while
+                improving availability to 99.99%. DORA metrics that quantify
+                engineering velocity and SRE practices that make reliability a
+                measurable discipline. And AI-powered observability that answers
+                reliability, delivery, cost, and risk questions in natural language
+                using real telemetry from Prometheus, Grafana, and OpenTelemetry —
+                not dashboards your team has to interpret, but intelligence that
+                interprets itself.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-cyan text-white font-semibold hover:shadow-lg hover:shadow-cyan/25 transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  Schedule a Consultation
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-            <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-              RESILIENCE. Delivered.
-            </span>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-primary">
-              Cloud & DevOps
-            </h1>
-            <p className="mt-6 text-lg text-text-secondary leading-relaxed max-w-2xl">
-              We build cloud-native operational intelligence platforms that
-              unify metrics, logs, traces, costs, and incidents into a single
-              AI-powered view. Kubernetes orchestration on EKS, GKE, and AKS
-              with Infrastructure-as-Code that eliminates configuration drift.
-              FinOps frameworks that have reduced cloud spend by 40% while
-              improving availability to 99.99%. DORA metrics that quantify
-              engineering velocity and SRE practices that make reliability a
-              measurable discipline. And AI-powered observability that answers
-              reliability, delivery, cost, and risk questions in natural language
-              using real telemetry from Prometheus, Grafana, and OpenTelemetry —
-              not dashboards your team has to interpret, but intelligence that
-              interprets itself.
-            </p>
+            <div className="hidden lg:flex justify-center">
+              <svg
+                width="420"
+                height="380"
+                viewBox="0 0 420 380"
+                fill="none"
+                className="w-full max-w-md opacity-80"
+              >
+                <path
+                  d="M 90 190 Q 90 125 155 115 Q 165 60 235 60 Q 305 60 315 115 Q 375 118 375 180 Q 375 235 310 235 L 130 235 Q 90 235 90 190 Z"
+                  stroke="rgba(0,188,212,0.25)"
+                  strokeWidth="1.5"
+                  fill="rgba(0,188,212,0.03)"
+                />
+                <path
+                  d="M 130 195 Q 130 150 175 145 Q 180 105 225 105 Q 270 105 275 145 Q 320 148 320 190 Q 320 220 280 220 L 160 220 Q 130 220 130 195 Z"
+                  stroke="rgba(0,188,212,0.4)"
+                  strokeWidth="1.5"
+                  fill="rgba(0,188,212,0.06)"
+                />
+
+                <rect x="150" y="255" width="55" height="38" rx="4" stroke="rgba(0,188,212,0.3)" strokeWidth="1" fill="rgba(0,188,212,0.05)" />
+                <rect x="215" y="255" width="55" height="38" rx="4" stroke="rgba(0,188,212,0.3)" strokeWidth="1" fill="rgba(0,188,212,0.05)" />
+                <line x1="158" y1="268" x2="197" y2="268" stroke="rgba(0,188,212,0.25)" strokeWidth="1" />
+                <line x1="158" y1="276" x2="197" y2="276" stroke="rgba(0,188,212,0.25)" strokeWidth="1" />
+                <line x1="158" y1="284" x2="197" y2="284" stroke="rgba(0,188,212,0.25)" strokeWidth="1" />
+                <line x1="223" y1="268" x2="262" y2="268" stroke="rgba(0,188,212,0.25)" strokeWidth="1" />
+                <line x1="223" y1="276" x2="262" y2="276" stroke="rgba(0,188,212,0.25)" strokeWidth="1" />
+                <line x1="223" y1="284" x2="262" y2="284" stroke="rgba(0,188,212,0.25)" strokeWidth="1" />
+
+                <line x1="178" y1="235" x2="178" y2="255" stroke="rgba(0,188,212,0.3)" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="242" y1="235" x2="242" y2="255" stroke="rgba(0,188,212,0.3)" strokeWidth="1" strokeDasharray="4 4" />
+
+                <path d="M 150 315 L 275 315" stroke="rgba(0,188,212,0.25)" strokeWidth="1" />
+                <polygon points="275,311 285,315 275,319" fill="rgba(0,188,212,0.3)" />
+
+                <circle cx="225" cy="165" r="5" fill="rgba(0,188,212,0.6)" />
+                <circle cx="178" cy="245" r="3" fill="rgba(0,188,212,0.4)" />
+                <circle cx="242" cy="245" r="3" fill="rgba(0,188,212,0.4)" />
+
+                <circle cx="50" cy="90" r="22" stroke="rgba(0,188,212,0.15)" strokeWidth="1" fill="none" />
+                <circle cx="385" cy="290" r="18" stroke="rgba(0,188,212,0.15)" strokeWidth="1" fill="none" />
+                <rect x="355" y="50" width="40" height="40" rx="8" stroke="rgba(0,188,212,0.15)" strokeWidth="1" fill="rgba(0,188,212,0.02)" />
+                <path d="M 25 270 A 45 45 0 0 1 70 315" stroke="rgba(0,188,212,0.12)" strokeWidth="1" fill="none" />
+                <line x1="110" y1="340" x2="310" y2="340" stroke="rgba(0,188,212,0.12)" strokeWidth="1" />
+                <line x1="90" y1="355" x2="330" y2="355" stroke="rgba(0,188,212,0.08)" strokeWidth="1" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Problems We Solve */}
+      {/* Stats Bar */}
+      <section
+        className="relative bg-white py-12"
+        style={{ boxShadow: "0 -4px 20px rgba(0,0,0,0.05)" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {metrics.map((m) => (
+              <div key={m.label} className="border-l-4 border-cyan pl-6">
+                <div className="text-3xl sm:text-4xl font-extrabold text-cyan">
+                  {m.value}
+                </div>
+                <div className="text-sm text-slate-600 mt-1">{m.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Problems Solved */}
       <section className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Challenges
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            PROBLEMS SOLVED
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
-            Problems We <span className="gradient-text">Solve</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+            From Infrastructure Challenges to{" "}
+            <span className="gradient-text">Business Outcomes</span>
           </h2>
           <p className="mt-4 text-text-secondary max-w-2xl">
             Cloud and DevOps maturity stalls when organizations collect
@@ -382,11 +477,11 @@ export default function CloudDevOpsPage() {
             {problems.map((p) => (
               <div key={p.problem} className="gradient-border p-8 hover-lift">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald/20 to-cyan/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <p.icon className="w-5 h-5 text-cyan" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/10 to-orange-500/10 flex items-center justify-center flex-shrink-0">
+                    <p.icon className="w-6 h-6 text-red-400" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-red-400 tracking-wider uppercase">
+                    <span className="text-xs font-semibold text-red-500 uppercase tracking-wider">
                       CHALLENGE
                     </span>
                     <h3 className="text-lg font-bold text-text-primary mt-1">
@@ -397,9 +492,9 @@ export default function CloudDevOpsPage() {
                 <p className="text-text-secondary leading-relaxed mb-4">
                   {p.description}
                 </p>
-                <div className="border-t border-border pt-4">
-                  <span className="text-xs font-bold text-emerald-500 tracking-wider uppercase">
-                    SOLUTION
+                <div className="bg-emerald-500/5 rounded-lg p-4">
+                  <span className="text-xs font-semibold text-emerald-500 uppercase tracking-wider">
+                    OUR SOLUTION
                   </span>
                   <p className="mt-2 text-text-secondary leading-relaxed">
                     {p.solution}
@@ -411,13 +506,13 @@ export default function CloudDevOpsPage() {
         </div>
       </section>
 
-      {/* Solutions & Service Offerings */}
+      {/* Service Offerings */}
       <section className="relative py-24 bg-navy border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            What We Deliver
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            WHAT WE DELIVER
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Solutions &{" "}
             <span className="gradient-text">Service Offerings</span>
           </h2>
@@ -430,9 +525,12 @@ export default function CloudDevOpsPage() {
           </p>
           <div className="mt-12 space-y-12">
             {serviceOfferings.map((offering, idx) => (
-              <div key={offering.title} className="gradient-border p-8 md:p-10">
+              <div
+                key={offering.title}
+                className="relative pl-8 border-l-[3px] border-cyan"
+              >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-emerald to-cyan text-white text-sm font-bold">
+                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan to-blue flex items-center justify-center text-white text-sm font-bold">
                     {idx + 1}
                   </span>
                   <h3 className="text-xl font-bold text-text-primary">
@@ -480,10 +578,10 @@ export default function CloudDevOpsPage() {
       {/* Key Capabilities */}
       <section className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Capabilities
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            CAPABILITIES
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Key <span className="gradient-text">Capabilities</span>
           </h2>
           <p className="mt-4 text-text-secondary max-w-2xl">
@@ -493,10 +591,7 @@ export default function CloudDevOpsPage() {
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {capabilities.map((cap) => (
-              <div
-                key={cap.title}
-                className="gradient-border p-8 hover-lift"
-              >
+              <div key={cap.title} className="gradient-border p-8 hover-lift">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald/20 to-cyan/20 flex items-center justify-center mb-5">
                   <cap.icon className="w-6 h-6 text-cyan" />
                 </div>
@@ -512,14 +607,15 @@ export default function CloudDevOpsPage() {
         </div>
       </section>
 
-      {/* Technologies */}
+      {/* Enterprise Technology Expertise */}
       <section className="relative py-24 bg-navy border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Stack
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            FEATURED
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
-            Technologies We <span className="gradient-text">Build With</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+            Enterprise Technology{" "}
+            <span className="gradient-text">Expertise</span>
           </h2>
           <p className="mt-4 text-text-secondary max-w-2xl">
             We select cloud-native technologies for production maturity,
@@ -527,11 +623,46 @@ export default function CloudDevOpsPage() {
             Every tool in our stack is open-source or open-standard, battle-tested
             across enterprise deployments at scale.
           </p>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {enterpriseTech.map((group) => (
+              <div key={group.name} className="gradient-border p-6 hover-lift">
+                <h3 className="text-lg font-bold text-text-primary mb-1">
+                  {group.name}
+                </h3>
+                <p className="text-sm text-text-muted mb-4">
+                  {group.description}
+                </p>
+                <ul className="space-y-2">
+                  {group.techs.map((tech) => (
+                    <li
+                      key={tech}
+                      className="flex items-center gap-2 text-sm text-text-secondary"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan flex-shrink-0" />
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technologies */}
+      <section className="relative py-24 border-t border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            STACK
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+            Technologies We <span className="gradient-text">Build With</span>
+          </h2>
           <div className="mt-8 flex flex-wrap gap-3">
             {technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-5 py-2.5 text-sm font-medium text-text-secondary border border-border rounded-full bg-navy hover:border-cyan/30 hover:text-cyan transition-colors"
+                className="px-5 py-2.5 text-sm font-medium text-text-secondary border border-border rounded-full hover:border-cyan/30 hover:text-cyan transition-colors"
               >
                 {tech}
               </span>
@@ -540,42 +671,13 @@ export default function CloudDevOpsPage() {
         </div>
       </section>
 
-      {/* Impact Metrics */}
-      <section className="relative py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Impact
-          </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
-            Measurable <span className="gradient-text">Results</span>
-          </h2>
-          <p className="mt-4 text-text-secondary max-w-2xl mx-auto">
-            These aren&apos;t vendor benchmarks or theoretical projections —
-            they&apos;re outcomes from production cloud-native platforms
-            running real workloads at enterprise scale.
-          </p>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-12">
-            {metrics.map((m) => (
-              <div key={m.label}>
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-extrabold gradient-text">
-                  {m.value}
-                </div>
-                <div className="mt-3 text-base text-text-muted font-medium">
-                  {m.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Related Case Study */}
       <section className="relative py-24 bg-navy border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Case Study
+          <span className="inline-block bg-cyan/10 text-cyan text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            CASE STUDY
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Related <span className="gradient-text">Work</span>
           </h2>
           <div className="mt-8 gradient-border p-8 hover-lift">

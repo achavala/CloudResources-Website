@@ -13,12 +13,6 @@ import {
   Clock,
   Database,
   BellRing,
-  Target,
-  Search,
-  Workflow,
-  ShieldCheck,
-  Wrench,
-  LineChart,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -321,79 +315,161 @@ const metrics = [
   { value: "4x", label: "ROI First Year" },
 ];
 
+const enterpriseTech = [
+  {
+    category: "AI & Language Models",
+    description: "Foundation models and orchestration frameworks for enterprise AI",
+    items: ["OpenAI GPT-4o", "LangChain"],
+  },
+  {
+    category: "Vector & Graph Databases",
+    description: "Semantic search, RAG pipelines, and knowledge graph infrastructure",
+    items: ["pgvector", "ChromaDB", "Neo4j"],
+  },
+  {
+    category: "Data Infrastructure",
+    description: "Production-grade storage, time-series, caching, and search",
+    items: ["PostgreSQL", "TimescaleDB", "Redis", "OpenSearch"],
+  },
+  {
+    category: "Application Frameworks",
+    description: "APIs, interfaces, and interactive visualization platforms",
+    items: ["FastAPI", "Next.js", "ReactFlow", "Recharts"],
+  },
+];
+
 export default function DataAIPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient" />
+      <section className="hero-dark relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0f2140] to-[#0a1628]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-cyan transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Services
           </Link>
-          <div className="max-w-3xl">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-blue flex items-center justify-center mb-6">
-              <Brain className="w-7 h-7 text-white" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-cyan bg-cyan/10 rounded-full mb-6">
+                Services
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
+                Data & AI Solutions
+              </h1>
+              <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl">
+                We build enterprise AI platforms that don&apos;t just answer
+                questions — they transform how your organization operates.
+                Tool-backed LLM architectures with zero-hallucination guarantees,
+                RAG pipelines, and multi-vendor data unification.
+                Production-grade AI your operations team trusts for critical
+                decisions.
+              </p>
+              <Link
+                href="/contact"
+                className="mt-8 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-cyan text-white font-semibold hover:bg-cyan/90 transition-colors"
+              >
+                Schedule a Consultation
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-            <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-              INTELLIGENCE. Delivered.
-            </span>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-primary">
-              Data & AI Solutions
-            </h1>
-            <p className="mt-6 text-lg text-text-secondary leading-relaxed max-w-2xl">
-              We build enterprise AI platforms that don&apos;t just answer
-              questions — they transform how your organization operates. Our
-              tool-backed LLM architectures combine GPT-4o function calling with
-              zero-hallucination guarantees, retrieval-augmented generation
-              pipelines, and multi-vendor data unification to deliver
-              conversational interfaces where every response is grounded in
-              real-time data from your actual infrastructure. Not demos. Not
-              proofs of concept. Production-grade AI that your operations team
-              trusts for critical decisions — deployed, monitored, and
-              continuously improving.
-            </p>
+            <div className="hidden lg:flex items-center justify-center">
+              <svg
+                className="w-80 h-80"
+                viewBox="0 0 400 400"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="200" cy="200" r="160" stroke="rgba(0,82,255,0.15)" strokeWidth="1" />
+                <circle cx="200" cy="200" r="120" stroke="rgba(0,82,255,0.12)" strokeWidth="1" />
+                <circle cx="200" cy="200" r="80" stroke="rgba(0,82,255,0.2)" strokeWidth="1" />
+                <circle cx="200" cy="200" r="40" stroke="rgba(0,210,255,0.25)" strokeWidth="1.5" />
+                <circle cx="200" cy="200" r="6" fill="rgba(0,210,255,0.8)" />
+                <circle cx="290" cy="110" r="5" fill="rgba(0,82,255,0.5)" />
+                <circle cx="110" cy="290" r="4" fill="rgba(0,210,255,0.4)" />
+                <circle cx="310" cy="260" r="3.5" fill="rgba(0,82,255,0.6)" />
+                <circle cx="90" cy="140" r="3" fill="rgba(0,210,255,0.5)" />
+                <circle cx="260" cy="340" r="2.5" fill="rgba(0,82,255,0.4)" />
+                <circle cx="140" cy="60" r="2.5" fill="rgba(0,210,255,0.3)" />
+                <rect x="160" y="40" width="80" height="80" rx="16" stroke="rgba(0,82,255,0.12)" strokeWidth="1" transform="rotate(45 200 80)" />
+                <rect x="280" y="180" width="50" height="50" rx="10" stroke="rgba(0,210,255,0.1)" strokeWidth="1" transform="rotate(30 305 205)" />
+                <line x1="40" y1="200" x2="360" y2="200" stroke="rgba(0,82,255,0.06)" strokeWidth="0.5" />
+                <line x1="200" y1="40" x2="200" y2="360" stroke="rgba(0,82,255,0.06)" strokeWidth="0.5" />
+                <path d="M 80 120 Q 200 40 320 120" stroke="rgba(0,210,255,0.1)" strokeWidth="1" fill="none" />
+                <path d="M 80 280 Q 200 360 320 280" stroke="rgba(0,210,255,0.1)" strokeWidth="1" fill="none" />
+                <path d="M 120 80 Q 40 200 120 320" stroke="rgba(0,82,255,0.08)" strokeWidth="1" fill="none" />
+                <path d="M 280 80 Q 360 200 280 320" stroke="rgba(0,82,255,0.08)" strokeWidth="1" fill="none" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Problems We Solve */}
-      <section className="relative py-24 border-t border-border">
+      {/* Stats Bar */}
+      <section className="relative bg-white shadow-[0_-1px_15px_rgba(0,0,0,0.05)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {metrics.map((m) => (
+              <div key={m.label} className="flex items-start gap-4">
+                <div className="w-1 h-14 rounded-full bg-gradient-to-b from-cyan to-blue flex-shrink-0" />
+                <div>
+                  <div className="text-3xl sm:text-4xl font-extrabold text-cyan">
+                    {m.value}
+                  </div>
+                  <div className="mt-1 text-sm text-text-secondary font-medium">
+                    {m.label}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Problems Solved */}
+      <section className="relative py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Challenges
+          <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-cyan bg-cyan/10 rounded-full mb-4">
+            Problems Solved
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
-            Problems We <span className="gradient-text">Solve</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+            Challenges We <span className="gradient-text">Eliminate</span>
           </h2>
           <p className="mt-4 text-text-secondary max-w-2xl">
             Enterprise AI adoption fails when organizations treat it as a
             technology initiative instead of an operational transformation. These
             are the patterns we see — and break — in every engagement.
           </p>
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {problems.map((p) => (
-              <div key={p.problem} className="gradient-border p-8 hover-lift">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan/20 to-blue/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <p.icon className="w-5 h-5 text-cyan" />
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {problems.map((p, i) => (
+              <div
+                key={p.problem}
+                className={`rounded-2xl p-8 ${i % 2 === 0 ? "bg-white" : "bg-navy"} border border-border hover-lift`}
+              >
+                <div className="flex items-start gap-5 mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan/20 to-blue/20 flex items-center justify-center flex-shrink-0">
+                    <p.icon className="w-6 h-6 text-cyan" />
                   </div>
-                  <h3 className="text-lg font-bold text-text-primary">
-                    {p.problem}
-                  </h3>
+                  <div>
+                    <span className="inline-block text-xs font-bold tracking-widest uppercase text-red-500 mb-1">
+                      Challenge
+                    </span>
+                    <h3 className="text-lg font-bold text-text-primary">
+                      {p.problem}
+                    </h3>
+                  </div>
                 </div>
-                <p className="text-text-secondary leading-relaxed mb-4">
+                <p className="text-text-secondary leading-relaxed mb-6">
                   {p.description}
                 </p>
-                <div className="border-t border-border pt-4">
-                  <span className="text-sm font-semibold text-cyan uppercase tracking-wider">
-                    How We Solve It
+                <div className="rounded-xl bg-emerald-50 border border-emerald-100 p-5">
+                  <span className="inline-block text-xs font-bold tracking-widest uppercase text-emerald-500 mb-2">
+                    Our Solution
                   </span>
-                  <p className="mt-2 text-text-secondary leading-relaxed">
+                  <p className="text-text-secondary leading-relaxed">
                     {p.solution}
                   </p>
                 </div>
@@ -403,13 +479,13 @@ export default function DataAIPage() {
         </div>
       </section>
 
-      {/* Solutions & Service Offerings */}
-      <section className="relative py-24 bg-navy border-t border-border">
+      {/* Service Offerings */}
+      <section className="relative py-24 bg-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
+          <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-cyan bg-cyan/10 rounded-full mb-4">
             What We Deliver
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Solutions &{" "}
             <span className="gradient-text">Service Offerings</span>
           </h2>
@@ -419,48 +495,54 @@ export default function DataAIPage() {
             production deployment and ongoing managed operations — we meet you
             where you are and take you where you need to be.
           </p>
-          <div className="mt-12 space-y-12">
+          <div className="mt-12 space-y-10">
             {serviceOfferings.map((offering, idx) => (
-              <div key={offering.title} className="gradient-border p-8 md:p-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-cyan to-blue text-white text-sm font-bold">
-                    {idx + 1}
-                  </span>
-                  <h3 className="text-xl font-bold text-text-primary">
-                    {offering.title}
-                  </h3>
-                </div>
-                <p className="text-text-secondary leading-relaxed mb-6">
-                  {offering.description}
-                </p>
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-cyan uppercase tracking-wider mb-4">
-                    What This Includes
-                  </h4>
-                  <ul className="space-y-3">
-                    {offering.includes.map((item) => (
-                      <li
-                        key={item.keyword}
-                        className="flex items-start gap-3"
-                      >
-                        <CheckCircle2 className="w-5 h-5 text-cyan flex-shrink-0 mt-0.5" />
-                        <span className="text-text-secondary leading-relaxed">
-                          <span className="font-semibold text-text-primary">
-                            {item.keyword}:
-                          </span>{" "}
-                          {item.detail}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="border-t border-border pt-4">
-                  <h4 className="text-sm font-semibold text-cyan uppercase tracking-wider mb-2">
-                    Outcomes
-                  </h4>
-                  <p className="text-text-secondary leading-relaxed">
-                    {offering.outcomes}
+              <div
+                key={offering.title}
+                className="relative bg-white rounded-2xl border border-border overflow-hidden"
+              >
+                <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-cyan to-blue rounded-l-2xl" />
+                <div className="p-8 md:p-10 pl-10">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-cyan to-blue text-white text-sm font-bold">
+                      {idx + 1}
+                    </span>
+                    <h3 className="text-xl font-bold text-text-primary">
+                      {offering.title}
+                    </h3>
+                  </div>
+                  <p className="text-text-secondary leading-relaxed mb-6">
+                    {offering.description}
                   </p>
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-cyan uppercase tracking-wider mb-4">
+                      What This Includes
+                    </h4>
+                    <ul className="space-y-3">
+                      {offering.includes.map((item) => (
+                        <li
+                          key={item.keyword}
+                          className="flex items-start gap-3"
+                        >
+                          <CheckCircle2 className="w-5 h-5 text-cyan flex-shrink-0 mt-0.5" />
+                          <span className="text-text-secondary leading-relaxed">
+                            <span className="font-semibold text-text-primary">
+                              {item.keyword}:
+                            </span>{" "}
+                            {item.detail}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="border-t border-border pt-4">
+                    <h4 className="text-sm font-semibold text-cyan uppercase tracking-wider mb-2">
+                      Outcomes
+                    </h4>
+                    <p className="text-text-secondary leading-relaxed">
+                      {offering.outcomes}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -469,12 +551,12 @@ export default function DataAIPage() {
       </section>
 
       {/* Key Capabilities */}
-      <section className="relative py-24 border-t border-border">
+      <section className="relative py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
+          <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-cyan bg-cyan/10 rounded-full mb-4">
             Capabilities
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Key <span className="gradient-text">Capabilities</span>
           </h2>
           <p className="mt-4 text-text-secondary max-w-2xl">
@@ -500,13 +582,56 @@ export default function DataAIPage() {
         </div>
       </section>
 
-      {/* Technologies */}
-      <section className="relative py-24 bg-navy border-t border-border">
+      {/* Enterprise Technology Expertise */}
+      <section className="relative py-24 bg-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
+          <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-cyan bg-cyan/10 rounded-full mb-4">
+            Featured
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+            Enterprise Technology{" "}
+            <span className="gradient-text">Expertise</span>
+          </h2>
+          <p className="mt-4 text-text-secondary max-w-2xl">
+            Battle-tested technologies selected for production readiness, team
+            maintainability, and long-term viability.
+          </p>
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {enterpriseTech.map((group) => (
+              <div
+                key={group.category}
+                className="relative bg-white rounded-2xl border border-border p-6 overflow-hidden hover-lift"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-cyan/5 to-transparent rounded-bl-[80px]" />
+                <h3 className="text-lg font-bold text-text-primary mb-1">
+                  {group.category}
+                </h3>
+                <p className="text-sm text-text-muted mb-4">
+                  {group.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1.5 text-sm font-medium text-cyan bg-cyan/10 rounded-full"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technologies */}
+      <section className="relative py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-cyan bg-cyan/10 rounded-full mb-4">
             Stack
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Technologies We <span className="gradient-text">Build With</span>
           </h2>
           <p className="mt-4 text-text-secondary max-w-2xl">
@@ -519,7 +644,7 @@ export default function DataAIPage() {
             {technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-5 py-2.5 text-sm font-medium text-text-secondary border border-border rounded-full bg-navy hover:border-cyan/30 hover:text-cyan transition-colors"
+                className="px-5 py-2.5 text-sm font-medium text-text-secondary border border-border rounded-full hover:border-cyan/30 hover:text-cyan transition-colors"
               >
                 {tech}
               </span>
@@ -528,43 +653,13 @@ export default function DataAIPage() {
         </div>
       </section>
 
-      {/* Impact Metrics */}
-      <section className="relative py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
-            Impact
-          </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
-            Measurable <span className="gradient-text">Results</span>
-          </h2>
-          <p className="mt-4 text-text-secondary max-w-2xl mx-auto">
-            These aren&apos;t projections — they&apos;re outcomes from
-            production deployments. Our AI platforms deliver quantifiable
-            business value measured in hours saved, incidents prevented, and
-            dollars returned.
-          </p>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-12">
-            {metrics.map((m) => (
-              <div key={m.label}>
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-extrabold gradient-text">
-                  {m.value}
-                </div>
-                <div className="mt-3 text-base text-text-muted font-medium">
-                  {m.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Related Case Study */}
-      <section className="relative py-24 bg-navy border-t border-border">
+      <section className="relative py-24 bg-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
+          <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-cyan bg-cyan/10 rounded-full mb-4">
             Case Study
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-text-primary">
             Related <span className="gradient-text">Work</span>
           </h2>
           <div className="mt-8 gradient-border p-8 hover-lift">
