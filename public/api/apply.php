@@ -101,6 +101,8 @@ if (isset($_FILES['resume']) && $_FILES['resume']['error'] === UPLOAD_ERR_OK) {
 }
 
 // --- DATABASE ---
+$dbSaved = false;
+$recordId = 0;
 try {
     $db = new SQLite3($dbFile);
     $db->exec('CREATE TABLE IF NOT EXISTS applications (
@@ -144,85 +146,143 @@ try {
     $recordId = $db->lastInsertRowID();
     $dbSaved = true;
 } catch (Exception $e) {
-    $dbSaved = false;
-    $recordId = 0;
     error_log('CloudResources Apply DB Error: ' . $e->getMessage());
 }
 
-// --- EMAIL WITH RESUME ATTACHMENT ---
+// --- EMAIL NOTIFICATION ---
+// Strategy: Send a plain-text notification FIRST (reliable, same as contact.php).
+// Then attempt a second email with the resume attachment (best effort).
 $emailSent = false;
+$attachEmailSent = false;
 $toEmail   = 'info@cloudresources.net';
-$subject   = "Job Application: {$jobTitle} — {$firstName} {$lastName}";
 $timestamp = date('F j, Y \a\t g:i A T');
+$ipAddr    = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$sizeKB    = round($resumeSize / 1024);
 
-$boundary = md5(uniqid(time()));
+// 1) Plain-text notification (same pattern as working contact.php)
+$plainSubject = "New Job Application: {$jobTitle} - {$firstName} {$lastName}";
+$plainBody  = "NEW JOB APPLICATION\n";
+$plainBody .= "Cloud Resources Careers\n";
+$plainBody .= "-------------------------------------------\n\n";
+$plainBody .= "Submitted: {$timestamp}\n\n";
+$plainBody .= "POSITION\n";
+$plainBody .= "Title:       {$jobTitle}\n";
+$plainBody .= "Department:  {$department}\n\n";
+$plainBody .= "CANDIDATE DETAILS\n";
+$plainBody .= "Name:        {$firstName} {$lastName}\n";
+$plainBody .= "Email:       {$email}\n";
+$plainBody .= "Phone:       {$phone}\n";
+$plainBody .= "LinkedIn:    {$linkedin}\n\n";
+$plainBody .= "COVER LETTER / MESSAGE\n";
+$plainBody .= "-------------------------------------------\n";
+$plainBody .= "{$coverLetter}\n\n";
+$plainBody .= "RESUME: {$resumeName} ({$sizeKB} KB)\n";
+$plainBody .= "Download from admin panel: https://cloudresources.net/api/applications.php\n\n";
+$plainBody .= "-------------------------------------------\n";
+$plainBody .= "Application ID: #{$recordId}\n";
+$plainBody .= "IP Address: {$ipAddr}\n";
 
-$textBody = <<<EOT
-═══════════════════════════════════════
-  NEW JOB APPLICATION
-  Cloud Resources Careers
-═══════════════════════════════════════
-
-Submitted: {$timestamp}
-
-POSITION
-───────────────────────────────────────
-Title:       {$jobTitle}
-Department:  {$department}
-
-CANDIDATE DETAILS
-───────────────────────────────────────
-Name:        {$firstName} {$lastName}
-Email:       {$email}
-Phone:       {$phone}
-LinkedIn:    {$linkedin}
-
-COVER LETTER / MESSAGE
-───────────────────────────────────────
-{$coverLetter}
-
-RESUME
-───────────────────────────────────────
-Filename:    {$resumeName}
-Size:        {$resumeSize} bytes
-
-───────────────────────────────────────
-Application ID: #{$recordId}
-IP Address: {$_SERVER['REMOTE_ADDR']}
-═══════════════════════════════════════
-EOT;
-
-$headers  = "From: Cloud Resources Careers <noreply@cloudresources.net>\r\n";
-$headers .= "Reply-To: {$email}\r\n";
-$headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: multipart/mixed; boundary=\"{$boundary}\"\r\n";
-$headers .= "X-Mailer: CloudResources-Careers/1.0\r\n";
-
-$emailBody  = "--{$boundary}\r\n";
-$emailBody .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$emailBody .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-$emailBody .= $textBody . "\r\n\r\n";
-
-if (!empty($resumePath) && file_exists($resumePath)) {
-    $fileContent = file_get_contents($resumePath);
-    $fileEncoded = chunk_split(base64_encode($fileContent));
-
-    $emailBody .= "--{$boundary}\r\n";
-    $emailBody .= "Content-Type: {$resumeMime}; name=\"{$resumeName}\"\r\n";
-    $emailBody .= "Content-Disposition: attachment; filename=\"{$resumeName}\"\r\n";
-    $emailBody .= "Content-Transfer-Encoding: base64\r\n\r\n";
-    $emailBody .= $fileEncoded . "\r\n";
-}
-
-$emailBody .= "--{$boundary}--\r\n";
+$plainHeaders  = "From: Cloud Resources <noreply@cloudresources.net>\r\n";
+$plainHeaders .= "Reply-To: {$email}\r\n";
+$plainHeaders .= "X-Mailer: CloudResources-Careers/1.0\r\n";
 
 try {
-    $emailSent = mail($toEmail, $subject, $emailBody, $headers);
+    $emailSent = @mail($toEmail, $plainSubject, $plainBody, $plainHeaders);
 } catch (Exception $e) {
-    error_log('CloudResources Apply Email Error: ' . $e->getMessage());
+    error_log('CloudResources Apply Email Error (plain): ' . $e->getMessage());
 }
 
-// --- UPDATE DB ---
+// 2) Email with resume attachment (best effort)
+if (!empty($resumePath) && file_exists($resumePath)) {
+    $boundary = 'CR_' . md5(uniqid(microtime(true)));
+
+    $attachSubject = "Resume Attached: {$jobTitle} - {$firstName} {$lastName}";
+
+    $attachHeaders  = "From: Cloud Resources <noreply@cloudresources.net>\r\n";
+    $attachHeaders .= "Reply-To: {$email}\r\n";
+    $attachHeaders .= "MIME-Version: 1.0\r\n";
+    $attachHeaders .= "Content-Type: multipart/mixed; boundary=\"{$boundary}\"\r\n";
+
+    $attachBody  = "--{$boundary}\r\n";
+    $attachBody .= "Content-Type: text/plain; charset=\"UTF-8\"\r\n";
+    $attachBody .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+    $attachBody .= "Resume attached for {$firstName} {$lastName} - {$jobTitle}\r\n";
+    $attachBody .= "Application ID: #{$recordId}\r\n\r\n";
+
+    $fileContent = file_get_contents($resumePath);
+    $fileEncoded = chunk_split(base64_encode($fileContent));
+    $safeResumeName = preg_replace('/[^a-zA-Z0-9._\-]/', '_', $resumeName);
+
+    $attachBody .= "--{$boundary}\r\n";
+    $attachBody .= "Content-Type: {$resumeMime}; name=\"{$safeResumeName}\"\r\n";
+    $attachBody .= "Content-Disposition: attachment; filename=\"{$safeResumeName}\"\r\n";
+    $attachBody .= "Content-Transfer-Encoding: base64\r\n\r\n";
+    $attachBody .= $fileEncoded . "\r\n";
+    $attachBody .= "--{$boundary}--\r\n";
+
+    try {
+        $attachEmailSent = @mail($toEmail, $attachSubject, $attachBody, $attachHeaders);
+    } catch (Exception $e) {
+        error_log('CloudResources Apply Email Error (attach): ' . $e->getMessage());
+    }
+}
+
+// --- SMS NOTIFICATION ---
+$smsSent = false;
+$smsPhone = '+12012149984';
+$smsBody = "New Applicant: {$firstName} {$lastName}\nRole: {$jobTitle}\nEmail: {$email}\nResume: {$resumeName}\nID: #{$recordId}";
+
+$configFile = $dataDir . '/config.php';
+if (file_exists($configFile)) {
+    include $configFile;
+}
+
+$twilioSid   = defined('TWILIO_SID')   ? TWILIO_SID   : '';
+$twilioToken  = defined('TWILIO_TOKEN') ? TWILIO_TOKEN  : '';
+$twilioFrom   = defined('TWILIO_FROM')  ? TWILIO_FROM   : '';
+
+if (!empty($twilioSid) && !empty($twilioToken) && !empty($twilioFrom)) {
+    try {
+        $ch = curl_init();
+        curl_setopt_array($ch, [
+            CURLOPT_URL            => "https://api.twilio.com/2010-04-01/Accounts/{$twilioSid}/Messages.json",
+            CURLOPT_POST           => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT        => 10,
+            CURLOPT_USERPWD        => "{$twilioSid}:{$twilioToken}",
+            CURLOPT_POSTFIELDS     => http_build_query([
+                'To'   => $smsPhone,
+                'From' => $twilioFrom,
+                'Body' => $smsBody,
+            ]),
+        ]);
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        if ($httpCode >= 200 && $httpCode < 300) {
+            $smsSent = true;
+        }
+    } catch (Exception $e) {
+        error_log('CloudResources SMS Error: ' . $e->getMessage());
+    }
+} else {
+    $carriers = [
+        '2012149984@tmomail.net',
+        '2012149984@vtext.com',
+        '2012149984@txt.att.net',
+    ];
+    $smsHeaders = "From: noreply@cloudresources.net\r\n";
+    foreach ($carriers as $gateway) {
+        try {
+            if (@mail($gateway, 'CR Applicant', "{$firstName} {$lastName} - {$jobTitle} - {$email}", $smsHeaders)) {
+                $smsSent = true;
+                break;
+            }
+        } catch (Exception $e) {}
+    }
+}
+
+// --- UPDATE DB WITH STATUS ---
 if ($dbSaved && $recordId > 0) {
     try {
         $update = $db->prepare('UPDATE applications SET email_sent = :es WHERE id = :id');
@@ -236,8 +296,10 @@ if ($dbSaved && $recordId > 0) {
 }
 
 echo json_encode([
-    'success'   => true,
-    'id'        => $recordId,
-    'emailSent' => $emailSent,
-    'message'   => 'Your application has been submitted successfully.',
+    'success'         => true,
+    'id'              => $recordId,
+    'emailSent'       => $emailSent,
+    'attachEmailSent' => $attachEmailSent,
+    'smsSent'         => $smsSent,
+    'message'         => 'Your application has been submitted successfully.',
 ]);
