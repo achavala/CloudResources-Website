@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -20,117 +20,39 @@ import {
   CheckCircle2,
   AlertCircle,
   FileText,
+  Shield,
+  Cpu,
+  Zap,
+  BarChart3,
+  Users,
+  Layers,
+  type LucideIcon,
 } from "lucide-react";
 
-const positions = [
-  {
-    slug: "senior-ai-ml-engineer",
-    title: "Senior AI/ML Engineer",
-    department: "AI Engineering",
-    location: "Irving, TX / Remote",
-    type: "Full-time",
-    description:
-      "Build production AI platforms with GPT-4o, LangChain, and tool-backed LLM architectures. Work on conversational AI systems processing 50+ tools with zero-hallucination guarantees.",
-    skills: [
-      "Python",
-      "GPT-4o/LLMs",
-      "LangChain",
-      "FastAPI",
-      "PostgreSQL",
-      "Docker",
-    ],
-    icon: Brain,
-  },
-  {
-    slug: "ml-operations-engineer",
-    title: "ML Operations Engineer",
-    department: "ML Engineering",
-    location: "Irving, TX / Remote",
-    type: "Full-time",
-    description:
-      "Deploy and maintain production ML pipelines — anomaly detection, capacity forecasting, and risk scoring models. Build automated retraining pipelines and model monitoring.",
-    skills: [
-      "scikit-learn",
-      "XGBoost",
-      "PyTorch",
-      "MLflow",
-      "Kubernetes",
-      "Python",
-    ],
-    icon: Sparkles,
-  },
-  {
-    slug: "full-stack-engineer-nextjs",
-    title: "Full-Stack Engineer (Next.js)",
-    department: "Product Engineering",
-    location: "Irving, TX / Hyderabad / Remote",
-    type: "Full-time",
-    description:
-      "Build enterprise dashboards and AI-powered interfaces with Next.js 14, TypeScript, and Tailwind CSS. Work on real-time visualization, chat interfaces, and topology rendering.",
-    skills: [
-      "Next.js",
-      "TypeScript",
-      "React",
-      "Tailwind CSS",
-      "Zustand",
-      "REST APIs",
-    ],
-    icon: Code2,
-  },
-  {
-    slug: "data-engineer",
-    title: "Data Engineer",
-    department: "Data Engineering",
-    location: "Irving, TX / Remote",
-    type: "Full-time",
-    description:
-      "Build polyglot data architectures with TimescaleDB, Neo4j, OpenSearch, and vector stores. Design real-time pipelines and automated data quality systems.",
-    skills: [
-      "PostgreSQL",
-      "TimescaleDB",
-      "dbt",
-      "Python",
-      "Apache Airflow",
-      "SQL",
-    ],
-    icon: Database,
-  },
-  {
-    slug: "cloud-devops-architect",
-    title: "Cloud/DevOps Architect",
-    department: "Cloud Engineering",
-    location: "Irving, TX / Remote",
-    type: "Full-time",
-    description:
-      "Design and deploy cloud-native architectures on AWS EKS. Build infrastructure-as-code with Terraform, manage Kubernetes clusters, and implement CI/CD pipelines.",
-    skills: [
-      "AWS",
-      "Terraform",
-      "Kubernetes",
-      "Docker",
-      "ArgoCD",
-      "Prometheus",
-    ],
-    icon: Cloud,
-  },
-  {
-    slug: "ai-solutions-architect",
-    title: "AI Solutions Architect",
-    department: "Solutions",
-    location: "Irving, TX / Remote",
-    type: "Full-time",
-    description:
-      "Work with enterprise clients to design AI/ML solutions. Translate business challenges into technical architectures spanning AI agents, ML pipelines, and data platforms.",
-    skills: [
-      "Enterprise Architecture",
-      "AI/ML",
-      "Client Engagement",
-      "Python",
-      "Cloud",
-      "Presales",
-    ],
-    icon: Rocket,
-  },
+const iconMap: Record<string, LucideIcon> = {
+  Brain, Sparkles, Code2, Database, Cloud, Rocket, Briefcase, Globe, Heart,
+  GraduationCap, Shield, Cpu, Zap, BarChart3, Users, Layers,
+};
+
+interface JobPosition {
+  id?: number;
+  slug: string;
+  title: string;
+  department: string;
+  location: string;
+  type: string;
+  description: string;
+  skills: string[];
+  icon: string;
+}
+
+const defaultPositions: JobPosition[] = [
+  { slug: "senior-ai-ml-engineer", title: "Senior AI/ML Engineer", department: "AI Engineering", location: "Irving, TX / Remote", type: "Full-time", description: "Build production AI platforms with GPT-4o, LangChain, and tool-backed LLM architectures. Work on conversational AI systems processing 50+ tools with zero-hallucination guarantees.", skills: ["Python","GPT-4o/LLMs","LangChain","FastAPI","PostgreSQL","Docker"], icon: "Brain" },
+  { slug: "ml-operations-engineer", title: "ML Operations Engineer", department: "ML Engineering", location: "Irving, TX / Remote", type: "Full-time", description: "Deploy and maintain production ML pipelines — anomaly detection, capacity forecasting, and risk scoring models. Build automated retraining pipelines and model monitoring.", skills: ["scikit-learn","XGBoost","PyTorch","MLflow","Kubernetes","Python"], icon: "Sparkles" },
+  { slug: "full-stack-engineer-nextjs", title: "Full-Stack Engineer (Next.js)", department: "Product Engineering", location: "Irving, TX / Hyderabad / Remote", type: "Full-time", description: "Build enterprise dashboards and AI-powered interfaces with Next.js 14, TypeScript, and Tailwind CSS. Work on real-time visualization, chat interfaces, and topology rendering.", skills: ["Next.js","TypeScript","React","Tailwind CSS","Zustand","REST APIs"], icon: "Code2" },
+  { slug: "data-engineer", title: "Data Engineer", department: "Data Engineering", location: "Irving, TX / Remote", type: "Full-time", description: "Build polyglot data architectures with TimescaleDB, Neo4j, OpenSearch, and vector stores. Design real-time pipelines and automated data quality systems.", skills: ["PostgreSQL","TimescaleDB","dbt","Python","Apache Airflow","SQL"], icon: "Database" },
+  { slug: "cloud-devops-architect", title: "Cloud/DevOps Architect", department: "Cloud Engineering", location: "Irving, TX / Remote", type: "Full-time", description: "Design and deploy cloud-native architectures on AWS EKS. Build infrastructure-as-code with Terraform, manage Kubernetes clusters, and implement CI/CD pipelines.", skills: ["AWS","Terraform","Kubernetes","Docker","ArgoCD","Prometheus"], icon: "Cloud" },
+  { slug: "ai-solutions-architect", title: "AI Solutions Architect", department: "Solutions", location: "Irving, TX / Remote", type: "Full-time", description: "Work with enterprise clients to design AI/ML solutions. Translate business challenges into technical architectures spanning AI agents, ML pipelines, and data platforms.", skills: ["Enterprise Architecture","AI/ML","Client Engagement","Python","Cloud","Presales"], icon: "Rocket" },
 ];
 
 const benefits = [
@@ -161,9 +83,8 @@ const benefits = [
 ];
 
 export default function CareersPage() {
-  const [selectedJob, setSelectedJob] = useState<
-    (typeof positions)[0] | null
-  >(null);
+  const [positions, setPositions] = useState<JobPosition[]>(defaultPositions);
+  const [selectedJob, setSelectedJob] = useState<JobPosition | null>(null);
   const [formState, setFormState] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -179,13 +100,24 @@ export default function CareersPage() {
     coverLetter: "",
   });
 
+  useEffect(() => {
+    fetch("/api/jobs.php")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.success && data.jobs?.length > 0) {
+          setPositions(data.jobs);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const openModal = (pos: (typeof positions)[0]) => {
+  const openModal = (pos: JobPosition) => {
     setSelectedJob(pos);
     setFormState("idle");
     setErrorMsg("");
@@ -320,15 +252,17 @@ export default function CareersPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {positions.map((pos) => (
+            {positions.map((pos) => {
+              const Icon = iconMap[pos.icon] || Briefcase;
+              return (
               <div
-                key={pos.title}
+                key={pos.slug}
                 className="gradient-border p-8 hover-lift group cursor-pointer"
                 onClick={() => openModal(pos)}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan/20 to-blue/20 flex items-center justify-center">
-                    <pos.icon className="w-5 h-5 text-cyan" />
+                    <Icon className="w-5 h-5 text-cyan" />
                   </div>
                   <span className="text-xs font-medium text-cyan bg-cyan/10 px-3 py-1 rounded-full">
                     {pos.type}
@@ -364,7 +298,8 @@ export default function CareersPage() {
                   Apply Now <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
