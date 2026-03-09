@@ -3,16 +3,60 @@ import { useState } from "react";
 import {
   Mail,
   Phone,
-  MapPin,
   Send,
   Building2,
   Globe,
   Clock,
   CheckCircle2,
+  Loader2,
+  AlertCircle,
 } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    service: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setError(
+        "Unable to send your message. Please email us directly at info@cloudresources.net"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -61,13 +105,14 @@ export default function ContactPage() {
                     with the right expert.
                   </p>
 
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      setSubmitted(true);
-                    }}
-                    className="space-y-6"
-                  >
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {error && (
+                      <div className="flex items-start gap-3 p-4 rounded-xl bg-red-50 border border-red-200">
+                        <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                        <p className="text-sm text-red-700">{error}</p>
+                      </div>
+                    )}
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-text-primary mb-2">
@@ -75,6 +120,9 @@ export default function ContactPage() {
                         </label>
                         <input
                           type="text"
+                          name="firstName"
+                          value={formData.firstName}
+                          onChange={handleChange}
                           required
                           className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
                           placeholder="John"
@@ -86,6 +134,9 @@ export default function ContactPage() {
                         </label>
                         <input
                           type="text"
+                          name="lastName"
+                          value={formData.lastName}
+                          onChange={handleChange}
                           required
                           className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
                           placeholder="Doe"
@@ -100,6 +151,9 @@ export default function ContactPage() {
                         </label>
                         <input
                           type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
                           required
                           className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
                           placeholder="john@company.com"
@@ -111,6 +165,9 @@ export default function ContactPage() {
                         </label>
                         <input
                           type="text"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
                           className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
                           placeholder="Your Company"
                         />
@@ -121,7 +178,12 @@ export default function ContactPage() {
                       <label className="block text-sm font-medium text-text-primary mb-2">
                         What are you interested in?
                       </label>
-                      <select className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-secondary text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all">
+                      <select
+                        name="service"
+                        value={formData.service}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-secondary text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
+                      >
                         <option value="">Select a service</option>
                         <option value="data-ai">Data & AI Solutions</option>
                         <option value="ml">ML Engineering</option>
@@ -138,6 +200,9 @@ export default function ContactPage() {
                         Tell us about your project
                       </label>
                       <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
                         rows={5}
                         className="w-full px-4 py-3 rounded-xl bg-white border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all resize-none"
                         placeholder="Describe your challenge, timeline, and what success looks like..."
@@ -146,10 +211,20 @@ export default function ContactPage() {
 
                     <button
                       type="submit"
-                      className="group w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-cyan to-blue text-white font-semibold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-cyan/25 transition-all duration-300 hover:-translate-y-0.5"
+                      disabled={loading}
+                      className="group w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-cyan to-blue text-white font-semibold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-cyan/25 transition-all duration-300 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Send Message
-                      <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      {loading ? (
+                        <>
+                          Sending...
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </>
+                      )}
                     </button>
                   </form>
                 </div>
