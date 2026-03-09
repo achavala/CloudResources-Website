@@ -330,6 +330,7 @@ $iconOptions = ['Brain','Sparkles','Code2','Database','Cloud','Rocket','Briefcas
     <div class="nav">
         <h1>Cloud Resources — Admin Dashboard</h1>
         <div class="nav-right">
+            <a href="linkedin.php" style="color:#60a5fa;">LinkedIn Content</a>
             <a href="admin.php?logout=1">Logout</a>
         </div>
     </div>
