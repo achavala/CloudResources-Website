@@ -370,39 +370,8 @@ export default function MLEngineeringPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <svg
-                className="w-80 h-80"
-                viewBox="0 0 400 400"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect x="100" y="100" width="200" height="200" rx="24" stroke="rgba(0,82,255,0.12)" strokeWidth="1" />
-                <rect x="140" y="140" width="120" height="120" rx="16" stroke="rgba(0,82,255,0.18)" strokeWidth="1" />
-                <rect x="175" y="175" width="50" height="50" rx="8" stroke="rgba(0,210,255,0.25)" strokeWidth="1.5" />
-                <circle cx="200" cy="200" r="6" fill="rgba(0,210,255,0.8)" />
-                <circle cx="100" cy="100" r="4" fill="rgba(0,82,255,0.5)" />
-                <circle cx="300" cy="100" r="4" fill="rgba(0,82,255,0.5)" />
-                <circle cx="100" cy="300" r="4" fill="rgba(0,82,255,0.5)" />
-                <circle cx="300" cy="300" r="4" fill="rgba(0,82,255,0.5)" />
-                <circle cx="200" cy="80" r="3" fill="rgba(0,210,255,0.4)" />
-                <circle cx="320" cy="200" r="3" fill="rgba(0,210,255,0.4)" />
-                <circle cx="200" cy="320" r="3" fill="rgba(0,210,255,0.4)" />
-                <circle cx="80" cy="200" r="3" fill="rgba(0,210,255,0.4)" />
-                <line x1="100" y1="100" x2="200" y2="200" stroke="rgba(0,82,255,0.08)" strokeWidth="0.5" />
-                <line x1="300" y1="100" x2="200" y2="200" stroke="rgba(0,82,255,0.08)" strokeWidth="0.5" />
-                <line x1="100" y1="300" x2="200" y2="200" stroke="rgba(0,82,255,0.08)" strokeWidth="0.5" />
-                <line x1="300" y1="300" x2="200" y2="200" stroke="rgba(0,82,255,0.08)" strokeWidth="0.5" />
-                <circle cx="200" cy="200" r="140" stroke="rgba(0,82,255,0.06)" strokeWidth="0.5" strokeDasharray="4 6" />
-                <circle cx="150" cy="120" r="2.5" fill="rgba(0,210,255,0.3)" />
-                <circle cx="250" cy="120" r="2.5" fill="rgba(0,210,255,0.3)" />
-                <circle cx="280" cy="180" r="2.5" fill="rgba(0,82,255,0.3)" />
-                <circle cx="280" cy="250" r="2.5" fill="rgba(0,82,255,0.3)" />
-                <circle cx="120" cy="250" r="2.5" fill="rgba(0,210,255,0.3)" />
-                <circle cx="120" cy="180" r="2.5" fill="rgba(0,82,255,0.3)" />
-                <path d="M 60 140 Q 120 60 200 60 Q 280 60 340 140" stroke="rgba(0,210,255,0.08)" strokeWidth="1" fill="none" />
-                <path d="M 60 260 Q 120 340 200 340 Q 280 340 340 260" stroke="rgba(0,210,255,0.08)" strokeWidth="1" fill="none" />
-              </svg>
+            <div className="hidden lg:flex items-center justify-center" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 82%, transparent 100%)', maskComposite: 'intersect', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 82%, transparent 100%)', WebkitMaskComposite: 'source-in' }}>
+              <img src="/images/service-ml-engineering.png" alt="" className="w-full h-auto object-contain" />
             </div>
           </div>
         </div>

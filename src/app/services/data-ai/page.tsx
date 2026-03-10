@@ -376,33 +376,8 @@ export default function DataAIPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <svg
-                className="w-80 h-80"
-                viewBox="0 0 400 400"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="200" cy="200" r="160" stroke="rgba(0,82,255,0.15)" strokeWidth="1" />
-                <circle cx="200" cy="200" r="120" stroke="rgba(0,82,255,0.12)" strokeWidth="1" />
-                <circle cx="200" cy="200" r="80" stroke="rgba(0,82,255,0.2)" strokeWidth="1" />
-                <circle cx="200" cy="200" r="40" stroke="rgba(0,210,255,0.25)" strokeWidth="1.5" />
-                <circle cx="200" cy="200" r="6" fill="rgba(0,210,255,0.8)" />
-                <circle cx="290" cy="110" r="5" fill="rgba(0,82,255,0.5)" />
-                <circle cx="110" cy="290" r="4" fill="rgba(0,210,255,0.4)" />
-                <circle cx="310" cy="260" r="3.5" fill="rgba(0,82,255,0.6)" />
-                <circle cx="90" cy="140" r="3" fill="rgba(0,210,255,0.5)" />
-                <circle cx="260" cy="340" r="2.5" fill="rgba(0,82,255,0.4)" />
-                <circle cx="140" cy="60" r="2.5" fill="rgba(0,210,255,0.3)" />
-                <rect x="160" y="40" width="80" height="80" rx="16" stroke="rgba(0,82,255,0.12)" strokeWidth="1" transform="rotate(45 200 80)" />
-                <rect x="280" y="180" width="50" height="50" rx="10" stroke="rgba(0,210,255,0.1)" strokeWidth="1" transform="rotate(30 305 205)" />
-                <line x1="40" y1="200" x2="360" y2="200" stroke="rgba(0,82,255,0.06)" strokeWidth="0.5" />
-                <line x1="200" y1="40" x2="200" y2="360" stroke="rgba(0,82,255,0.06)" strokeWidth="0.5" />
-                <path d="M 80 120 Q 200 40 320 120" stroke="rgba(0,210,255,0.1)" strokeWidth="1" fill="none" />
-                <path d="M 80 280 Q 200 360 320 280" stroke="rgba(0,210,255,0.1)" strokeWidth="1" fill="none" />
-                <path d="M 120 80 Q 40 200 120 320" stroke="rgba(0,82,255,0.08)" strokeWidth="1" fill="none" />
-                <path d="M 280 80 Q 360 200 280 320" stroke="rgba(0,82,255,0.08)" strokeWidth="1" fill="none" />
-              </svg>
+            <div className="hidden lg:flex items-center justify-center" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 82%, transparent 100%)', maskComposite: 'intersect', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 82%, transparent 100%)', WebkitMaskComposite: 'source-in' }}>
+              <img src="/images/service-data-ai.png" alt="" className="w-full h-auto object-contain" />
             </div>
           </div>
         </div>

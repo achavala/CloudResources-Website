@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+
 import HeroCarousel from "@/components/HeroCarousel";
 import {
   Brain,
@@ -127,7 +127,28 @@ const testimonials = [
   },
 ];
 
-const clientImages = [1, 2, 3, 4, 5, 7, 8, 9];
+const clients = [
+  { name: "Google", logo: "/clients/google.svg" },
+  { name: "Microsoft", logo: "/clients/microsoft.svg" },
+  { name: "Apple", logo: "/clients/apple.svg" },
+  { name: "AWS", logo: "/clients/aws.svg" },
+  { name: "AT&T", logo: "/clients/att.svg" },
+  { name: "AMD", logo: "/clients/amd.svg" },
+  { name: "Toyota", logo: "/clients/toyota.svg" },
+  { name: "Best Buy", logo: "/clients/bestbuy.svg" },
+  { name: "Wells Fargo", logo: "/clients/wellsfargo.svg" },
+  { name: "USAA", logo: "/clients/usaa.svg" },
+  { name: "Cognizant", logo: "/clients/cognizant.svg" },
+  { name: "Ameriprise Financial", logo: "/clients/ameriprise.svg" },
+  { name: "PNC Bank", logo: "/clients/pnc.svg" },
+  { name: "Vanguard", logo: "/clients/vanguard.svg" },
+  { name: "Citizens Bank", logo: "/clients/citizensbank.svg" },
+  { name: "Geisinger Health", logo: "/clients/geisinger.svg" },
+  { name: "Whataburger", logo: "/clients/whataburger.svg" },
+  { name: "Jewelers Mutual", logo: "/clients/jewelersmutual.svg" },
+  { name: "Howard Hughes Holdings", logo: "/clients/howardhughes.svg" },
+  { name: "The Mutual Group", logo: "/clients/mutualofomaha.svg" },
+];
 
 export default function Home() {
   return (
@@ -359,21 +380,20 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-sm font-semibold text-text-muted tracking-wider uppercase">
-              Our Clients
+              Trusted By Industry Leaders
             </span>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
-            {clientImages.map((n) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+            {clients.map((c) => (
               <div
-                key={n}
-                className="flex items-center justify-center py-4 px-4 rounded-xl border border-border bg-navy/50 hover:border-cyan/30 transition-all"
+                key={c.name}
+                className="flex items-center justify-center py-5 px-5 rounded-xl border border-border bg-white hover:border-cyan/30 hover:shadow-md transition-all"
               >
-                <Image
-                  src={`/clients/client${n}.png`}
-                  alt={`Client ${n}`}
-                  width={80}
-                  height={40}
-                  className="h-8 w-auto object-contain opacity-40 hover:opacity-70 transition-opacity grayscale hover:grayscale-0"
+                <img
+                  src={c.logo}
+                  alt={c.name}
+                  className="h-10 w-auto max-w-[140px] object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}

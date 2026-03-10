@@ -379,41 +379,8 @@ export default function IntelligentAutomationPage() {
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:flex justify-center">
-              <svg
-                width="420"
-                height="380"
-                viewBox="0 0 420 380"
-                fill="none"
-                className="w-full max-w-md opacity-80"
-              >
-                <polygon points="210,40 265,72 265,136 210,168 155,136 155,72" stroke="rgba(0,188,212,0.4)" strokeWidth="1.5" fill="rgba(0,188,212,0.06)" />
-                <polygon points="295,100 350,132 350,196 295,228 240,196 240,132" stroke="rgba(0,188,212,0.25)" strokeWidth="1" fill="rgba(0,188,212,0.04)" />
-                <polygon points="125,100 180,132 180,196 125,228 70,196 70,132" stroke="rgba(0,188,212,0.25)" strokeWidth="1" fill="rgba(0,188,212,0.04)" />
-                <polygon points="210,180 265,212 265,276 210,308 155,276 155,212" stroke="rgba(0,188,212,0.35)" strokeWidth="1.5" fill="rgba(0,188,212,0.05)" />
-                <polygon points="295,240 350,272 350,336 295,368 240,336 240,272" stroke="rgba(0,188,212,0.15)" strokeWidth="1" fill="rgba(0,188,212,0.03)" />
-                <polygon points="125,240 180,272 180,336 125,368 70,336 70,272" stroke="rgba(0,188,212,0.15)" strokeWidth="1" fill="rgba(0,188,212,0.03)" />
-
-                <line x1="210" y1="168" x2="210" y2="180" stroke="rgba(0,188,212,0.3)" strokeWidth="1.5" />
-                <line x1="265" y1="136" x2="240" y2="132" stroke="rgba(0,188,212,0.3)" strokeWidth="1" />
-                <line x1="155" y1="136" x2="180" y2="132" stroke="rgba(0,188,212,0.3)" strokeWidth="1" />
-                <line x1="265" y1="276" x2="240" y2="272" stroke="rgba(0,188,212,0.2)" strokeWidth="1" />
-                <line x1="155" y1="276" x2="180" y2="272" stroke="rgba(0,188,212,0.2)" strokeWidth="1" />
-
-                <circle cx="210" cy="104" r="6" fill="rgba(0,188,212,0.7)" />
-                <circle cx="295" cy="164" r="4.5" fill="rgba(0,188,212,0.5)" />
-                <circle cx="125" cy="164" r="4.5" fill="rgba(0,188,212,0.5)" />
-                <circle cx="210" cy="244" r="5.5" fill="rgba(0,188,212,0.6)" />
-                <circle cx="295" cy="304" r="3.5" fill="rgba(0,188,212,0.35)" />
-                <circle cx="125" cy="304" r="3.5" fill="rgba(0,188,212,0.35)" />
-
-                <path d="M 40 30 A 70 70 0 0 1 110 30" stroke="rgba(0,188,212,0.15)" strokeWidth="1" fill="none" />
-                <path d="M 310 350 A 55 55 0 0 1 380 350" stroke="rgba(0,188,212,0.12)" strokeWidth="1" fill="none" />
-                <rect x="360" y="60" width="40" height="40" rx="8" stroke="rgba(0,188,212,0.2)" strokeWidth="1" fill="rgba(0,188,212,0.03)" />
-                <rect x="10" y="280" width="35" height="35" rx="6" stroke="rgba(0,188,212,0.15)" strokeWidth="1" fill="rgba(0,188,212,0.02)" />
-                <circle cx="380" cy="180" r="15" stroke="rgba(0,188,212,0.12)" strokeWidth="1" fill="none" />
-                <circle cx="30" cy="180" r="12" stroke="rgba(0,188,212,0.1)" strokeWidth="1" fill="none" />
-              </svg>
+            <div className="hidden lg:flex justify-center" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 82%, transparent 100%)', maskComposite: 'intersect', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 82%, transparent 100%)', WebkitMaskComposite: 'source-in' }}>
+              <img src="/images/service-intelligent-automation.png" alt="" className="w-full h-auto object-contain" />
             </div>
           </div>
         </div>
