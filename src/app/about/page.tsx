@@ -61,7 +61,7 @@ const milestones = [
   { year: "2022", event: "Built first enterprise AI platform (DevopsSREGPT)" },
   { year: "2024", event: "Launched SanGPT, AI-RUN SOS, and DRA platforms" },
   { year: "2025", event: "6 AI/ML products in portfolio, expanded to 50+ enterprise clients" },
-  { year: "2026", event: "Scaling to $100M+ with AI-native solutions across industries" },
+  { year: "2026", event: "Powering enterprise AI transformation across healthcare, finance, and beyond" },
 ];
 
 const leadership = [
