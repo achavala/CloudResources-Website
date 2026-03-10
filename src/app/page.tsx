@@ -177,16 +177,17 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-24 sm:py-32 hero-dark">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
+            <span className="text-sm font-semibold tracking-wider uppercase bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               What We Deliver
             </span>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-              Results. Not Rhetoric.
+            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+              Results. <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Not Rhetoric.</span>
             </h2>
-            <p className="mt-4 text-lg text-text-secondary max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
               From AI-native platforms to elite staffing — we combine deep technology
               expertise with enterprise operational knowledge.
             </p>
@@ -197,26 +198,26 @@ export default function Home() {
               <Link
                 key={service.title}
                 href={service.href}
-                className="gradient-border p-8 hover-lift group block"
+                className="group block p-8 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm hover:border-cyan-400/30 hover:bg-white/[0.06] transition-all duration-300 hover:-translate-y-1"
               >
                 <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-5 opacity-80 group-hover:opacity-100 transition-opacity`}
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-5 shadow-lg`}
                 >
                   <service.icon className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-text-primary group-hover:text-cyan transition-colors">
+                  <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">
                     {service.title}
                   </h3>
-                  <span className="text-xs font-semibold text-cyan bg-cyan/10 px-2.5 py-1 rounded-full">
+                  <span className="text-xs font-semibold text-cyan-300 bg-cyan-400/10 border border-cyan-400/20 px-2.5 py-1 rounded-full">
                     {service.stats}
                   </span>
                 </div>
-                <p className="text-sm text-text-secondary leading-relaxed mb-4">
+                <p className="text-sm text-slate-400 leading-relaxed mb-4">
                   {service.description}
                 </p>
-                <span className="text-sm font-semibold text-cyan flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Learn More <ArrowRight className="w-3.5 h-3.5" />
+                <span className="text-sm font-semibold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Learn More <ArrowRight className="w-3.5 h-3.5 text-cyan-400" />
                 </span>
               </Link>
             ))}

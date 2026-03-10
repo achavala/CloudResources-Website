@@ -226,19 +226,18 @@ export default function CaseStudiesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient" />
-        <div className="absolute inset-0 grid-bg" />
+      <section className="relative pt-32 pb-20 overflow-hidden hero-dark">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-sm font-semibold text-cyan tracking-wider uppercase">
+            <span className="text-sm font-semibold tracking-wider uppercase bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Case Studies
             </span>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
+            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
               Real AI Solutions.{" "}
-              <span className="gradient-text">Real Results.</span>
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Real Results.</span>
             </h1>
-            <p className="mt-6 text-lg text-text-secondary leading-relaxed max-w-2xl">
+            <p className="mt-6 text-lg text-slate-400 leading-relaxed max-w-2xl">
               Explore how we&apos;ve built AI platforms, ML pipelines, and autonomous
               systems that deliver measurable enterprise value across industries.
             </p>
@@ -250,19 +249,18 @@ export default function CaseStudiesPage() {
       {caseStudies.map((study, index) => (
         <section
           key={study.slug}
-          className={`relative py-24 ${
-            index % 2 === 0 ? "" : "bg-navy"
-          } border-t border-border`}
+          className="relative py-24 hero-dark border-t border-white/[0.06]"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`absolute inset-0 ${index % 2 === 0 ? 'bg-gradient-to-br from-[#0a1628] via-[#0f2140] to-[#0a1628]' : 'bg-gradient-to-br from-[#0d1f3c] via-[#0a1628] to-[#0d1f3c]'}`} />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 mb-8">
               <div
-                className={`w-12 h-12 rounded-xl bg-gradient-to-br ${study.color} flex items-center justify-center`}
+                className={`w-12 h-12 rounded-xl bg-gradient-to-br ${study.color} flex items-center justify-center shadow-lg`}
               >
                 <study.icon className="w-5 h-5 text-white" />
               </div>
               <div>
-                <span className="text-xs font-semibold text-cyan bg-cyan/10 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold text-cyan-300 bg-cyan-400/10 border border-cyan-400/20 px-3 py-1 rounded-full">
                   {study.tag}
                 </span>
               </div>
@@ -270,58 +268,58 @@ export default function CaseStudiesPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
               <div className="lg:col-span-3">
-                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
+                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2 text-white">
                   {study.title}
                 </h2>
-                <p className="text-lg text-cyan font-medium mb-6">
+                <p className="text-lg font-medium mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                   {study.subtitle}
                 </p>
-                <p className="text-text-secondary leading-relaxed mb-8">
+                <p className="text-slate-400 leading-relaxed mb-8">
                   {study.description}
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  <div className="gradient-border p-6">
+                  <div className="p-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm">
                     <h3 className="text-sm font-semibold text-red-400 tracking-wider uppercase mb-3 flex items-center gap-2">
                       <Target className="w-4 h-4" /> The Challenge
                     </h3>
-                    <p className="text-sm text-text-secondary leading-relaxed">
+                    <p className="text-sm text-slate-400 leading-relaxed">
                       {study.problem}
                     </p>
                   </div>
-                  <div className="gradient-border p-6">
-                    <h3 className="text-sm font-semibold text-emerald tracking-wider uppercase mb-3 flex items-center gap-2">
+                  <div className="p-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm">
+                    <h3 className="text-sm font-semibold text-emerald-400 tracking-wider uppercase mb-3 flex items-center gap-2">
                       <Zap className="w-4 h-4" /> Our Solution
                     </h3>
-                    <p className="text-sm text-text-secondary leading-relaxed">
+                    <p className="text-sm text-slate-400 leading-relaxed">
                       {study.solution}
                     </p>
                   </div>
                 </div>
 
                 <div className="mb-8">
-                  <h3 className="text-sm font-semibold text-text-primary tracking-wider uppercase mb-3">
+                  <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-3">
                     Key Outcomes
                   </h3>
                   <ul className="space-y-2">
                     {study.outcomes.map((o) => (
                       <li key={o} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald mt-0.5 shrink-0" />
-                        <span className="text-sm text-text-secondary">{o}</span>
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+                        <span className="text-sm text-slate-300">{o}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-semibold text-text-primary tracking-wider uppercase mb-3">
+                  <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-3">
                     Technologies Used
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {study.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1.5 text-xs font-medium text-text-secondary border border-border rounded-full bg-navy"
+                        className="px-3 py-1.5 text-xs font-medium text-slate-300 border border-white/[0.1] rounded-full bg-white/[0.05]"
                       >
                         {tech}
                       </span>
@@ -331,17 +329,17 @@ export default function CaseStudiesPage() {
               </div>
 
               <div className="lg:col-span-2">
-                <div className="gradient-border p-8 sticky top-28">
-                  <h3 className="text-sm font-semibold text-text-primary tracking-wider uppercase mb-6">
+                <div className="p-8 rounded-2xl border border-white/[0.1] bg-white/[0.04] backdrop-blur-sm sticky top-28">
+                  <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-6">
                     Impact Metrics
                   </h3>
                   <div className="grid grid-cols-2 gap-6">
                     {study.metrics.map((m) => (
                       <div key={m.label}>
-                        <div className="text-2xl font-extrabold gradient-text">
+                        <div className="text-2xl font-extrabold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                           {m.value}
                         </div>
-                        <div className="text-xs text-text-muted font-medium mt-1">
+                        <div className="text-xs text-slate-500 font-medium mt-1">
                           {m.label}
                         </div>
                       </div>
@@ -359,7 +357,7 @@ export default function CaseStudiesPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white">
             Ready to Be Our{" "}
-            <span className="gradient-text">Next Success Story?</span>
+            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Next Success Story?</span>
           </h2>
           <p className="text-lg text-slate-300 max-w-xl mx-auto mb-8">
             Every project starts with a conversation. Let&apos;s explore what AI can do
@@ -367,7 +365,7 @@ export default function CaseStudiesPage() {
           </p>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-cyan to-blue text-white font-semibold hover:shadow-lg hover:shadow-cyan/25 transition-all duration-300 hover:-translate-y-0.5"
+            className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:shadow-lg hover:shadow-cyan-400/25 transition-all duration-300 hover:-translate-y-0.5"
           >
             Discuss Your Project
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
